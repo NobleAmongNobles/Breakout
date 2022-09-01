@@ -17,6 +17,9 @@ public class Deathzone : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D other){
+        ScoreManager.instance.RemoveLive();
+        if(ScoreManager.instance.leben>0){
         other.GetComponent<Ball>().Respawn();
+        }
     }
 }

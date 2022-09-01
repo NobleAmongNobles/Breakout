@@ -17,6 +17,7 @@ public class Brick : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other){
+        ScoreManager.instance.AddPoint(10);
         Destroy(gameObject);
     }
 }
