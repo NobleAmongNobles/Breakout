@@ -1,6 +1,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
+
 
 public class Deathzone : MonoBehaviour
 {
@@ -17,9 +19,27 @@ public class Deathzone : MonoBehaviour
     }
 
     public void OnTriggerEnter2D(Collider2D other){
-        ScoreManager.instance.RemoveLive();
-        if(ScoreManager.instance.leben>0){
-        other.GetComponent<Ball>().Respawn();
+        GameObject collided = other.gameObject;
+        if(collided.tag == "Ball"){
+            if(Ballmanager.instance.balls.Count <= 1){
+            ScoreManager.instance.RemoveLive();
+            }
+            else{
+                Destroy(collided);
+                Ballmanager.instance.balls.Remove(collided);
+            }
+            if(ScoreManager.instance.leben>0){
+                other.GetComponent<Ball>().Respawn();
+            }else{
+            SceneManager.LoadScene(2);
+            }
         }
+        
+        if(collided.tag == "Item1"){
+            Destroy(collided);
+        }
+        
+        
+        
     }
 }

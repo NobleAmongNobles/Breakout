@@ -3,11 +3,12 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BrickManager : MonoBehaviour
-{
+{   public static BrickManager instance;
     public int rows;
     public int columns;
     public float spacing;
     public GameObject brickPrefab;
+    public int points = 10;
 
     private List<GameObject> bricks = new List<GameObject>();
     // Start is called before the first frame update
@@ -20,6 +21,9 @@ public class BrickManager : MonoBehaviour
     void Update()
     {
         
+    }
+    void Awake(){
+        instance = this;
     }
 
     public void ResetLevel(){

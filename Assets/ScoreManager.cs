@@ -19,26 +19,36 @@ public class ScoreManager : MonoBehaviour
     }
     void Start()
     {    highscore = PlayerPrefs.GetInt("highscore", 0);
-         scoreText.text = score.ToString() + "Punkte: ";
+         scoreText.text =  "Punkte: " + score.ToString();
          highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
          lebentext.text = "Leben: " + leben.ToString();
     }
     public void AddPoint(int amount){
         score += amount;
-        scoreText.text = score.ToString() + "Punkte: ";
+        scoreText.text =  "Punkte: " + score.ToString() ;
         if(score > highscore){
             PlayerPrefs.SetInt("highscore", score);
             highscore = score;
             highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
         }
     }
+    public void RemovePoints(int amount){
+        if(score > highscore){
+            PlayerPrefs.SetInt("highscore", (score - amount));
+            highscore = score - amount;
+            highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
+        }
+        score-= amount;
+        scoreText.text = "Punkte: " + score.ToString() ;
+    }
     public void RemoveLive (){
         leben -= 1;
         lebentext.text = "Leben: " + leben.ToString();
-        if (leben == 0){
-
-        }
-
+        
+    }
+    public void AddLive(){
+        leben += 1;
+        lebentext.text = "Leben: " + leben.ToString(); 
     }
     
 

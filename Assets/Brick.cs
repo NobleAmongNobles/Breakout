@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Brick : MonoBehaviour
-{
+{  
     // Start is called before the first frame update
     void Start()
     {
@@ -17,7 +17,8 @@ public class Brick : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other){
-        ScoreManager.instance.AddPoint(10);
+        ScoreManager.instance.AddPoint(BrickManager.instance.points);
+        Itemmenager.instance.CallforItems(transform.position);
         Destroy(gameObject);
     }
 }
