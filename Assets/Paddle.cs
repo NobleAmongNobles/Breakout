@@ -40,7 +40,7 @@ public class Paddle : MonoBehaviour
         StartCoroutine(Scoremultiply());
         
       }
-      if (collided.tag == "Ballspeeddecrease"){
+      if (collided.tag == "BallspeedDecrease"){
         StartCoroutine(Ballspeeddecrease());
        
       }

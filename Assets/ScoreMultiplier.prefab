@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -4418979993384980301}
   m_Layer: 0
   m_Name: ScoreMultiplier
-  m_TagString: Scoremodifier
+  m_TagString: MinusScore
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0

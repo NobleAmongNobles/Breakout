@@ -22,7 +22,7 @@ public class Deathzone : MonoBehaviour
         GameObject collided = other.gameObject;
         if(collided.tag == "Ball"){
             if(Ballmanager.instance.balls.Count <= 1){
-            ScoreManager.instance.RemoveLive();
+                ScoreManager.instance.RemoveLive();
             }
             else{
                 Destroy(collided);
