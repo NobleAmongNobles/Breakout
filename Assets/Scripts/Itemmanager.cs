@@ -3,8 +3,9 @@ using System.Collections.Generic;
 using UnityEngine;
 using System;
 
-public class Itemmanager : MonoBehaviour
-{   public static Itemmanager instance;
+public class ItemManager : MonoBehaviour
+{   
+    public static ItemManager instance;
     public GameObject ItemType1;
     public GameObject ItemType2;
     public GameObject ItemType3;
@@ -60,7 +61,5 @@ public class Itemmanager : MonoBehaviour
         if(randomnumber >= 130 && randomnumber < 140){
             GameObject item = Instantiate(ItemType9, startvector, Quaternion.identity); 
         }
-        
-       
     }
 }

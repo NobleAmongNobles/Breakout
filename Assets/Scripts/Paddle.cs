@@ -24,54 +24,57 @@ public class Paddle : MonoBehaviour
     private void FixedUpdate(){
         GetComponent<Rigidbody2D>().velocity = Vector2.right * speed * input;
     }
+
     void OnTriggerEnter2D (Collider2D other)
     { 
         GameObject collided = other.gameObject;
       if(collided.tag == "Item1")
       {
        StartCoroutine(Resize());
-      
       }
+
       if(collided.tag == "Speedboost"){
-        StartCoroutine(Speedup());
-       
+        StartCoroutine(Speedup()); 
       }
+      
       if(collided.tag == "Scoremodifier"){
-        StartCoroutine(Scoremultiply());
-        
+        StartCoroutine(Scoremultiply()); 
       }
+
       if (collided.tag == "BallspeedDecrease"){
         StartCoroutine(Ballspeeddecrease());
-       
       }
+
       if(collided.tag == "ExtraLife"){
-        ScoreManager.instance.AddLive();
-        
+        ScoreManager.instance.AddLive();  
       }
+
       if(collided.tag == "Multiball"){
-        Ballmanager.instance.Spawnball();
-        
+        Ballmanager.instance.Spawnball();  
       }
+
       if (collided.tag == "MinusScore"){
-        ScoreManager.instance.RemovePoints(20);
-        
+        ScoreManager.instance.RemovePoints(20);  
       }
+
       if(collided.tag == "SlowDown"){
         StartCoroutine(Slowdown());
       }
+
       if(collided.tag == "Speedball"){
         StartCoroutine(Speedball());
       }
+
       if (collided.tag != "Ball"){
         Destroy(collided);
       }
-
     }
     IEnumerator Speedup (){
         speed *= 2f;
         yield return new WaitForSeconds(10);
         speed /= 2f;
     }
+
     IEnumerator Resize (){
        size = transform.localScale;
        size.y *= 1.5f;
@@ -79,29 +82,30 @@ public class Paddle : MonoBehaviour
        yield return new WaitForSeconds(10);
        size = transform.localScale;
        size.y /= 1.5f;
-       transform.localScale = size;
-       
+       transform.localScale = size; 
     }
+
     IEnumerator Scoremultiply (){
         BrickManager.instance.points *= 2;
         yield return new WaitForSeconds(10);
         BrickManager.instance.points /= 2;
     }
+
     IEnumerator Ballspeeddecrease (){
         Ball.instance.speed /= 2f; 
         yield return new WaitForSeconds(10);
         Ball.instance.speed *= 2f; 
     }
+
     IEnumerator Slowdown(){
         speed /= 1.5f;
         yield return new WaitForSeconds(3);
         speed *= 1.5f; 
     }
+
     IEnumerator Speedball(){
         Ball.instance.speed *= 1.5f; 
         yield return new WaitForSeconds(3);
         Ball.instance.speed /= 1.5f; 
     }
-
-   
 }
