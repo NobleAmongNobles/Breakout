@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 6827719477596671905}
   - component: {fileID: 6827719477596671904}
   - component: {fileID: 6827719477596671907}
-  - component: {fileID: 6827719477596671906}
+  - component: {fileID: -4548099463468929519}
   m_Layer: 0
   m_Name: Speedball
   m_TagString: Speedball
@@ -184,7 +184,7 @@ PolygonCollider2D:
       - {x: -0.385, y: 2.965}
       - {x: -0.385, y: 2.7849998}
       - {x: -0.565, y: 2.7849998}
---- !u!114 &6827719477596671906
+--- !u!114 &-4548099463468929519
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -193,6 +193,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6827719477596671917}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 13b1ae9a621cde5428ec0fb7a4e0707a, type: 3}
+  m_Script: {fileID: 11500000, guid: 5349f33a93860434db72dde724c7af69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

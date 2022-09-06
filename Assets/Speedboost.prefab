@@ -10,8 +10,8 @@ GameObject:
   m_Component:
   - component: {fileID: 1228691446913490550}
   - component: {fileID: 6990844806804034671}
-  - component: {fileID: 7653847939259293601}
   - component: {fileID: -3485615382348842653}
+  - component: {fileID: 4116704418595195544}
   m_Layer: 0
   m_Name: Speedboost
   m_TagString: Speedboost
@@ -86,18 +86,6 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &7653847939259293601
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 549773043754926119}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 47747607418cdf7469438032bd15c235, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &-3485615382348842653
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -147,3 +135,15 @@ PolygonCollider2D:
       - {x: -1.225, y: -7.4049997}
       - {x: 3.5049999, y: -8.025}
       - {x: 4.485, y: -9.005}
+--- !u!114 &4116704418595195544
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 549773043754926119}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5349f33a93860434db72dde724c7af69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 

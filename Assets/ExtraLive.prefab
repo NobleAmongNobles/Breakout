@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8367881089005701436}
   - component: {fileID: 3717064045655403206}
   - component: {fileID: 3532873691051645906}
-  - component: {fileID: 2076352834165970797}
+  - component: {fileID: -4178313788467364988}
   m_Layer: 0
   m_Name: ExtraLive
   m_TagString: ExtraLife
@@ -430,7 +430,7 @@ PolygonCollider2D:
       - {x: 0.10825278, y: -14.544535}
       - {x: 0.2783643, y: -14.451746}
       - {x: 0.47940516, y: -14.343493}
---- !u!114 &2076352834165970797
+--- !u!114 &-4178313788467364988
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -439,6 +439,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 2850082473090206448}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 402cef6db8cc8724faf071157ba3f9ac, type: 3}
+  m_Script: {fileID: 11500000, guid: 5349f33a93860434db72dde724c7af69, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
