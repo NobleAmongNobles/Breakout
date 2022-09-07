@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 7234306748123353988}
   - component: {fileID: -8244347794491273561}
   m_Layer: 0
-  m_Name: decreaseBallspeed
+  m_Name: DecreaseBallspeed
   m_TagString: BallspeedDecrease
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

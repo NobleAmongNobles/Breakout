@@ -21,11 +21,11 @@ public class Deathzone : MonoBehaviour
     public void OnTriggerEnter2D(Collider2D other){
         GameObject collided = other.gameObject;
         if(collided.tag == "Ball"){
-            if(Ballmanager.instance.balls.Count <= 1){
+            if(BallManager.instance.balls.Count <= 1){
                 ScoreManager.instance.RemoveLive();
             }
             else{
-                Ballmanager.instance.balls.Remove(collided);
+                BallManager.instance.balls.Remove(collided);
                 Destroy(collided);
             }
 

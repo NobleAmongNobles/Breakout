@@ -2,8 +2,8 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Ballmanager : MonoBehaviour
-{   public static Ballmanager instance;
+public class BallManager : MonoBehaviour
+{   public static BallManager instance;
     public GameObject Ball;
     public List<GameObject> balls = new List<GameObject>();
 

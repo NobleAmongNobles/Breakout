@@ -57,7 +57,7 @@ public class Paddle : MonoBehaviour
           ScoreManager.instance.AddLive(); 
           break;
         case "Multiball":
-          Ballmanager.instance.Spawnball();
+          BallManager.instance.Spawnball();
           break;
         case "MinusScore":
           ScoreManager.instance.RemovePoints(20);
