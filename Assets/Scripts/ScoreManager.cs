@@ -13,16 +13,26 @@ public class ScoreManager : MonoBehaviour
     int score = 0;
     int highscore = 0;
     public int leben = 3;
-    // Start is called before the first frame update
+
     private void Awake(){
         instance = this;
     }
+    
+    // Start is called before the first frame update
     void Start()
-    {    highscore = PlayerPrefs.GetInt("highscore", 0);
+    {    
+        highscore = PlayerPrefs.GetInt("highscore", 0);
          scoreText.text =  "Punkte: " + score.ToString();
          highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
          lebentext.text = "Leben: " + leben.ToString();
     }
+
+    // Update is called once per frame
+    void Update()
+    {
+        
+    }
+
     public void AddPoint(int amount){
         score += amount;
         scoreText.text =  "Punkte: " + score.ToString() ;
@@ -32,6 +42,7 @@ public class ScoreManager : MonoBehaviour
             highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
         }
     }
+    
     public void RemovePoints(int amount){
         if(score > highscore){
             PlayerPrefs.SetInt("highscore", (score - amount));
@@ -41,20 +52,14 @@ public class ScoreManager : MonoBehaviour
         score-= amount;
         scoreText.text = "Punkte: " + score.ToString() ;
     }
+
     public void RemoveLive (){
         leben -= 1;
         lebentext.text = "Leben: " + leben.ToString();
-        
     }
+
     public void AddLive(){
         leben += 1;
         lebentext.text = "Leben: " + leben.ToString(); 
-    }
-    
-
-    // Update is called once per frame
-    void Update()
-    {
-        
     }
 }

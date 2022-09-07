@@ -8,8 +8,8 @@ public class PaddlePlayer2 : MonoBehaviour
      public Vector2 size;
 
     private float input;
+
     // Start is called before the first frame update
-    
     void Start()
     {
         
@@ -21,14 +21,13 @@ public class PaddlePlayer2 : MonoBehaviour
       Vector2 pos = transform.position;
         
       if (Input.GetKey(KeyCode.A)){
-
         pos.x -= speed * Time.deltaTime;
       }
          
       if (Input.GetKey(KeyCode.D)){
-       
         pos.x += speed * Time.deltaTime;
       }
+
       transform.position = pos;
     }
 
@@ -38,48 +37,42 @@ public class PaddlePlayer2 : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D other)
     { 
-        GameObject collided = other.gameObject;
-      if(collided.tag == "Item1")
-      {
-       StartCoroutine(Resize());
-      }
-
-      if(collided.tag == "Speedboost"){
-        StartCoroutine(Speedup()); 
-      }
-      
-      if(collided.tag == "Scoremodifier"){
-        StartCoroutine(Scoremultiply()); 
-      }
-
-      if (collided.tag == "BallspeedDecrease"){
-        StartCoroutine(Ballspeeddecrease());
-      }
-
-      if(collided.tag == "ExtraLife"){
-        ScoreManager.instance.AddLive();  
-      }
-
-      if(collided.tag == "Multiball"){
-        Ballmanager.instance.Spawnball();  
-      }
-
-      if (collided.tag == "MinusScore"){
-        ScoreManager.instance.RemovePoints(20);  
-      }
-
-      if(collided.tag == "SlowDown"){
-        StartCoroutine(Slowdown());
-      }
-
-      if(collided.tag == "Speedball"){
+      GameObject collided = other.gameObject;
+      switch(collided.tag){
+        case "Item1":
+          StartCoroutine(Resize());
+          break;
+        case "Speedboost":
+          StartCoroutine(Speedup()); 
+          break;
+        case "Scoremodifier":
+          StartCoroutine(Scoremultiply()); 
+          break;
+        case "BallspeedDecrease":
+          StartCoroutine(BallspeedDecrease());
+          break;
+        case "ExtraLife":
+          ScoreManager.instance.AddLive(); 
+          break;
+        case "Multiball":
+          Ballmanager.instance.Spawnball();
+          break;
+        case "MinusScore":
+          ScoreManager.instance.RemovePoints(20);
+          break;
+        case "SlowDown":
+          StartCoroutine(Slowdown());
+          break;
+        case "Speedball":
         StartCoroutine(Speedball());
+          break;
       }
 
       if (collided.tag != "Ball"){
         Destroy(collided);
       }
     }
+
     IEnumerator Speedup (){
         speed *= 2f;
         yield return new WaitForSeconds(10);
@@ -108,7 +101,7 @@ public class PaddlePlayer2 : MonoBehaviour
         BrickManager.instance.pointsBrick4 /= 2;
     }
 
-    IEnumerator Ballspeeddecrease (){
+    IEnumerator BallspeedDecrease (){
         Ball.instance.speed /= 2f; 
         yield return new WaitForSeconds(10);
         Ball.instance.speed *= 2f; 

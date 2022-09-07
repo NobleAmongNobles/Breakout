@@ -16,14 +16,17 @@ public class ItemManager : MonoBehaviour
     public GameObject ItemType8;
     public GameObject ItemType9;
     private List<GameObject> items = new List<GameObject>();
+
+    private void Awake(){
+        instance = this;
+    }
+
     // Start is called before the first frame update
     void Start()
     {
 
     }
-    private void Awake(){
-        instance = this;
-    }
+
     // Update is called once per frame
     void Update()
     {

@@ -24,22 +24,15 @@ public class Deathzone : MonoBehaviour
             if(Ballmanager.instance.balls.Count <= 1){
                 ScoreManager.instance.RemoveLive();
             }
-            else{
-                Destroy(collided);
-                Ballmanager.instance.balls.Remove(collided);
-            }
+
             if(ScoreManager.instance.leben>0){
                 other.GetComponent<Ball>().Respawn();
-            }else{
-            SceneManager.LoadScene(2);
             }
+            else{
+                SceneManager.LoadScene(2);
+            }
+            Ballmanager.instance.balls.Remove(collided);
         }
-        
-        if(collided.tag == "Item1"){
-            Destroy(collided);
-        }
-        
-        
-        
+        Destroy(collided);
     }
 }

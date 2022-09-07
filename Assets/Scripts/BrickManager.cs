@@ -3,7 +3,8 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class BrickManager : MonoBehaviour
-{   public static BrickManager instance;
+{   
+    public static BrickManager instance;
     public int rows;
     public int columns;
     public float spacing;
@@ -17,6 +18,7 @@ public class BrickManager : MonoBehaviour
     public int pointsBrick4 = 40;
 
     private List<GameObject> bricks = new List<GameObject>();
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -28,6 +30,7 @@ public class BrickManager : MonoBehaviour
     {
         
     }
+
     void Awake(){
         instance = this;
     }

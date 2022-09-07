@@ -38,44 +38,38 @@ public class Paddle : MonoBehaviour
 
     void OnTriggerEnter2D (Collider2D other)
     { 
-        GameObject collided = other.gameObject;
-      if(collided.tag == "Item1")
-      {
-       StartCoroutine(Resize());
-      }
+      GameObject collided = other.gameObject;
 
-      if(collided.tag == "Speedboost"){
-        StartCoroutine(Speedup()); 
+      switch(collided.tag){
+        case "Item1":
+          StartCoroutine(Resize());
+          break;
+        case "Speedboost":
+          StartCoroutine(Speedup()); 
+          break;
+        case "Scoremodifier":
+          StartCoroutine(Scoremultiply()); 
+          break;
+        case "BallspeedDecrease":
+          StartCoroutine(BallspeedDecrease());
+          break;
+        case "ExtraLife":
+          ScoreManager.instance.AddLive(); 
+          break;
+        case "Multiball":
+          Ballmanager.instance.Spawnball();
+          break;
+        case "MinusScore":
+          ScoreManager.instance.RemovePoints(20);
+          break;
+        case "SlowDown":
+          StartCoroutine(Slowdown());
+          break;
+        case "Speedball":
+        StartCoroutine(Speedball());
+          break;
       }
       
-      if(collided.tag == "Scoremodifier"){
-        StartCoroutine(Scoremultiply()); 
-      }
-
-      if (collided.tag == "BallspeedDecrease"){
-        StartCoroutine(Ballspeeddecrease());
-      }
-
-      if(collided.tag == "ExtraLife"){
-        ScoreManager.instance.AddLive();  
-      }
-
-      if(collided.tag == "Multiball"){
-        Ballmanager.instance.Spawnball();  
-      }
-
-      if (collided.tag == "MinusScore"){
-        ScoreManager.instance.RemovePoints(20);  
-      }
-
-      if(collided.tag == "SlowDown"){
-        StartCoroutine(Slowdown());
-      }
-
-      if(collided.tag == "Speedball"){
-        StartCoroutine(Speedball());
-      }
-
       if (collided.tag != "Ball"){
         Destroy(collided);
       }
@@ -108,7 +102,7 @@ public class Paddle : MonoBehaviour
         BrickManager.instance.pointsBrick4 /= 2;
     }
 
-    IEnumerator Ballspeeddecrease (){
+    IEnumerator BallspeedDecrease (){
         Ball.instance.speed /= 2f; 
         yield return new WaitForSeconds(10);
         Ball.instance.speed *= 2f; 
