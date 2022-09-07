@@ -18,7 +18,18 @@ public class Paddle : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        input = Input.GetAxisRaw("Horizontal");
+      Vector2 pos = transform.position;
+        
+      if (Input.GetKey("left")){
+
+        pos.x -= speed * Time.deltaTime;
+      }
+         
+      if (Input.GetKey("right")){
+       
+        pos.x += speed * Time.deltaTime;
+      }
+      transform.position = pos;
     }
 
     private void FixedUpdate(){
@@ -86,9 +97,15 @@ public class Paddle : MonoBehaviour
     }
 
     IEnumerator Scoremultiply (){
-        BrickManager.instance.points *= 2;
+        BrickManager.instance.pointsBrick1 *= 2;
+        BrickManager.instance.pointsBrick2 *= 2;
+        BrickManager.instance.pointsBrick3 *= 2;
+        BrickManager.instance.pointsBrick4 *= 2;
         yield return new WaitForSeconds(10);
-        BrickManager.instance.points /= 2;
+        BrickManager.instance.pointsBrick1 /= 2;
+        BrickManager.instance.pointsBrick2 /= 2;
+        BrickManager.instance.pointsBrick3 /= 2;
+        BrickManager.instance.pointsBrick4 /= 2;
     }
 
     IEnumerator Ballspeeddecrease (){

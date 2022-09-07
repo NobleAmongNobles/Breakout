@@ -17,6 +17,13 @@ TagManager:
   - SlowDown
   - Speedball
   - Speedboost
+  - Brick1
+  - Brick
+  - Brick3
+  - Brick5
+  - Brick7
+  - Brick2
+  - Brick4
   layers:
   - Default
   - TransparentFX
