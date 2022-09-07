@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 1228691446913490550}
   - component: {fileID: 6990844806804034671}
   - component: {fileID: -3485615382348842653}
-  - component: {fileID: 4116704418595195544}
+  - component: {fileID: -1825316662012794052}
   m_Layer: 0
   m_Name: Speedboost
   m_TagString: Speedboost
@@ -135,7 +135,7 @@ PolygonCollider2D:
       - {x: -1.225, y: -7.4049997}
       - {x: 3.5049999, y: -8.025}
       - {x: 4.485, y: -9.005}
---- !u!114 &4116704418595195544
+--- !u!114 &-1825316662012794052
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -144,6 +144,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 549773043754926119}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5349f33a93860434db72dde724c7af69, type: 3}
+  m_Script: {fileID: 11500000, guid: ac6930c9b17996d4e89a6589f4c6da27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instance: {fileID: 0}

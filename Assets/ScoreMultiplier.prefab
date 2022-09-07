@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 7898798467878638973}
   - component: {fileID: 6055812669662737379}
   - component: {fileID: 2726528776767786752}
-  - component: {fileID: -4465001023947190176}
+  - component: {fileID: -471926648035477575}
   m_Layer: 0
   m_Name: ScoreMultiplier
   m_TagString: MinusScore
@@ -131,7 +131,7 @@ PolygonCollider2D:
       - {x: 0.421875, y: -0.421875}
       - {x: 0.46875, y: -0.359375}
       - {x: 0.4921875, y: -0.28515625}
---- !u!114 &-4465001023947190176
+--- !u!114 &-471926648035477575
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -140,6 +140,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 1243945385620410794}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5349f33a93860434db72dde724c7af69, type: 3}
+  m_Script: {fileID: 11500000, guid: ac6930c9b17996d4e89a6589f4c6da27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instance: {fileID: 0}

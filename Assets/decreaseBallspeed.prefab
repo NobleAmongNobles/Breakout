@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2210241688855054223}
   - component: {fileID: 1814498138315889783}
   - component: {fileID: 7234306748123353988}
-  - component: {fileID: 3289673739187821991}
+  - component: {fileID: -8244347794491273561}
   m_Layer: 0
   m_Name: decreaseBallspeed
   m_TagString: BallspeedDecrease
@@ -133,7 +133,7 @@ PolygonCollider2D:
       - {x: 0.40234375, y: 0.79296875}
       - {x: 0.29296875, y: 0.90234375}
       - {x: 0.15234375, y: 0.97265625}
---- !u!114 &3289673739187821991
+--- !u!114 &-8244347794491273561
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -142,6 +142,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 415141684439833329}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 5349f33a93860434db72dde724c7af69, type: 3}
+  m_Script: {fileID: 11500000, guid: ac6930c9b17996d4e89a6589f4c6da27, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  instance: {fileID: 0}
