@@ -225,8 +225,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1226580851}
   highscoreText: {fileID: 2034439239}
-  lebentext: {fileID: 1877878154}
-  leben: 3
+  lebentext1: {fileID: 1877878154}
+  lebentext2: {fileID: 1877878154}
+  leben1: 3
+  leben2: 3
 --- !u!114 &495655079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -947,7 +949,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   ball1: {fileID: 6860575835690818116, guid: dbffc2558673a55468eaccaa3dca2e7c, type: 3}
   ball2: {fileID: 6860575835690818116, guid: 2b386b5bf3ad05945a737f08ce175291, type: 3}
-  balls: []
+  balls1: []
+  balls2: []
   mode: 0
 --- !u!4 &1639000418
 Transform:
@@ -998,6 +1001,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   size: {x: 0, y: 0}
+  player: 0
 --- !u!212 &1655475336
 SpriteRenderer:
   m_ObjectHideFlags: 0
