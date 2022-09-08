@@ -6,12 +6,14 @@ using UnityEngine.UI;
 public class ScoreManager : MonoBehaviour
 {
     public static ScoreManager instance;
-    public Text scoreText;
+    public Text scoreText1;
+    public Text scoreText2;
     public Text highscoreText;
     public Text lebentext1;
     public Text lebentext2;
 
-    int score = 0;
+    int score1 = 0;
+    int score2 = 0;
     int highscore = 0;
     public int leben1 = 3;
     public int leben2 = 3;
@@ -24,8 +26,9 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {    
         highscore = PlayerPrefs.GetInt("highscore", 0);
-        scoreText.text =  "Punkte: " + score.ToString();
-        highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
+        scoreText1.text =  "Punkte: " + score1.ToString();
+        scoreText2.text =  "Punkte: " + score2.ToString();
+        highscoreText.text = "Highscore: " + highscore.ToString() + " Punkte";
         lebentext1.text = "Leben: " + leben1.ToString();
         lebentext2.text = "Leben: " + leben2.ToString();
     }
@@ -36,24 +39,46 @@ public class ScoreManager : MonoBehaviour
         
     }
 
-    public void AddPoint(int amount){
-        score += amount;
-        scoreText.text =  "Punkte: " + score.ToString() ;
-        if(score > highscore){
-            PlayerPrefs.SetInt("highscore", score);
-            highscore = score;
-            highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
+    public void AddPoint(int amount, string player){
+        if(player == "Ball1"){
+            score1 += amount;
+            scoreText1.text =  "Punkte: " + score1.ToString() ;
+            if(score1 > highscore){
+                PlayerPrefs.SetInt("highscore", score1);
+                highscore = score1;
+                highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
+            }
+        }
+        else{
+            score2 += amount;
+            scoreText2.text =  "Punkte: " + score2.ToString() ;
+            if(score2 > highscore){
+                PlayerPrefs.SetInt("highscore", score2);
+                highscore = score2;
+                highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
+            }
         }
     }
     
-    public void RemovePoints(int amount){
-        if(score > highscore){
-            PlayerPrefs.SetInt("highscore", (score - amount));
-            highscore = score - amount;
-            highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
+    public void RemovePoints(int amount, int player){
+        if(player == 1){
+            if(score1 > highscore){
+                PlayerPrefs.SetInt("highscore", (score1 - amount));
+                highscore = score1 - amount;
+                highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
+            }
+            score1 -= amount;
+            scoreText1.text = "Punkte: " + score1.ToString();
         }
-        score-= amount;
-        scoreText.text = "Punkte: " + score.ToString() ;
+        else{
+            if(score2 > highscore){
+                PlayerPrefs.SetInt("highscore", (score2 - amount));
+                highscore = score2 - amount;
+                highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
+            }
+            score2-= amount;
+            scoreText2.text = "Punkte: " + score2.ToString();
+        }
     }
 
     public void RemoveLive (int player){

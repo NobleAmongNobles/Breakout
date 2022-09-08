@@ -78,7 +78,7 @@ public class Paddle : MonoBehaviour
           BallManager.instance.Spawnball(gameObject.tag);
           break;
         case "MinusScore":
-          ScoreManager.instance.RemovePoints(20);
+          ScoreManager.instance.RemovePoints(20, player);
           break;
         case "SlowDown":
           StartCoroutine(Slowdown());

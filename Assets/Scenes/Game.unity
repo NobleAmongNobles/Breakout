@@ -223,7 +223,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1f7a9522cbbde9a46992016b4c967c62, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  scoreText: {fileID: 1226580851}
+  scoreText1: {fileID: 1226580851}
+  scoreText2: {fileID: 1226580851}
   highscoreText: {fileID: 2034439239}
   lebentext1: {fileID: 1877878154}
   lebentext2: {fileID: 1877878154}

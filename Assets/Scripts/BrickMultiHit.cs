@@ -39,19 +39,20 @@ public class BrickMultiHit : MonoBehaviour
 
     private void OnCollisionEnter2D(Collision2D other){
         hits -= 1;
+        string ball = other.gameObject.tag;
         if(hits == 0){
             switch(gameObject.tag){
                 case "Brick1": 
-                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick1);
+                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick1, ball);
                     break;
                 case "Brick2":
-                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick2);
+                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick2, ball);
                     break;
                 case "Brick3":
-                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick3);
+                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick3, ball);
                     break;
                 case "Brick4":
-                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick4);
+                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick4, ball);
                     break;
             }
             ItemManager.instance.CallforItems(transform.position);

@@ -47,12 +47,16 @@ public class Deathzone : MonoBehaviour
             if(ball.gameObject.tag == "Ball1"){
                 BallManager.instance.balls1.Remove(ball.gameObject);
                 Destroy(ball.gameObject);
-                BallManager.instance.Spawnball("Paddle1");
+                if(BallManager.instance.balls1.Count == 0){
+                    BallManager.instance.Spawnball("Paddle1");
+                }
             }
             else{
                 BallManager.instance.balls2.Remove(ball.gameObject);
                 Destroy(ball.gameObject);
-                BallManager.instance.Spawnball("Paddle2");
+                if(BallManager.instance.balls2.Count == 0){
+                    BallManager.instance.Spawnball("Paddle2");
+                }
             }
         }
         else{
