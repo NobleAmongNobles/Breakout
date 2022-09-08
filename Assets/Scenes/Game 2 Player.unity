@@ -137,7 +137,7 @@ GameObject:
   - component: {fileID: 166982809}
   m_Layer: 0
   m_Name: Deathzone Player 2
-  m_TagString: Deathzone
+  m_TagString: Deathzone2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -245,7 +245,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 10
+  m_RootOrder: 6
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &479567707
 GameObject:
@@ -313,7 +313,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 8
+  m_RootOrder: 12
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &495655077
 GameObject:
@@ -349,8 +349,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   scoreText: {fileID: 1226580851}
   highscoreText: {fileID: 2034439239}
-  lebentext: {fileID: 1877878154}
-  leben: 3
+  lebentext1: {fileID: 1877878154}
+  lebentext2: {fileID: 1893743878}
+  leben1: 3
+  leben2: 3
 --- !u!114 &495655079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -427,8 +429,9 @@ RectTransform:
   - {fileID: 1226580853}
   - {fileID: 2034439241}
   - {fileID: 1877878156}
+  - {fileID: 1893743880}
   m_Father: {fileID: 0}
-  m_RootOrder: 7
+  m_RootOrder: 11
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
@@ -628,7 +631,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 12
+  m_RootOrder: 4
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1143614241
 GameObject:
@@ -872,7 +875,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 6
+  m_RootOrder: 10
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1538833770
 GameObject:
@@ -983,7 +986,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 11
+  m_RootOrder: 3
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1551287728
 GameObject:
@@ -1149,7 +1152,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 5
+  m_RootOrder: 9
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1639000416
 GameObject:
@@ -1180,8 +1183,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d56ebb4faddc9a5408ebfb6bcd2f4ea3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  Ball: {fileID: 6860575835690818116, guid: 2b386b5bf3ad05945a737f08ce175291, type: 3}
-  balls: []
+  ball1: {fileID: 6860575835690818116, guid: dbffc2558673a55468eaccaa3dca2e7c, type: 3}
+  ball2: {fileID: 6860575835690818116, guid: 2b386b5bf3ad05945a737f08ce175291, type: 3}
+  balls1: []
+  balls2: []
+  mode: 0
 --- !u!4 &1639000418
 Transform:
   m_ObjectHideFlags: 0
@@ -1195,7 +1201,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 9
+  m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1655475333
 GameObject:
@@ -1212,7 +1218,7 @@ GameObject:
   - component: {fileID: 1655475339}
   m_Layer: 0
   m_Name: Paddle Player 1
-  m_TagString: Paddle
+  m_TagString: Paddle1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1231,6 +1237,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 7
   size: {x: 0, y: 0}
+  player: 0
 --- !u!212 &1655475336
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1296,7 +1303,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 4
+  m_RootOrder: 7
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
 --- !u!50 &1655475338
 Rigidbody2D:
@@ -1378,7 +1385,7 @@ GameObject:
   - component: {fileID: 1877878155}
   - component: {fileID: 1877878154}
   m_Layer: 5
-  m_Name: Leben
+  m_Name: Leben1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1446,6 +1453,86 @@ RectTransform:
   m_AnchoredPosition: {x: 88, y: -88}
   m_SizeDelta: {x: 160, y: 30.003}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!1 &1893743877
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1893743880}
+  - component: {fileID: 1893743879}
+  - component: {fileID: 1893743878}
+  m_Layer: 5
+  m_Name: Leben2
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &1893743878
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893743877}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5f7201a12d95ffc409449d95f23cf332, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Material: {fileID: 0}
+  m_Color: {r: 1, g: 1, b: 1, a: 1}
+  m_RaycastTarget: 1
+  m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
+  m_Maskable: 1
+  m_OnCullStateChanged:
+    m_PersistentCalls:
+      m_Calls: []
+  m_FontData:
+    m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+    m_FontSize: 14
+    m_FontStyle: 0
+    m_BestFit: 0
+    m_MinSize: 10
+    m_MaxSize: 40
+    m_Alignment: 0
+    m_AlignByGeometry: 0
+    m_RichText: 1
+    m_HorizontalOverflow: 0
+    m_VerticalOverflow: 0
+    m_LineSpacing: 1
+  m_Text: Leben
+--- !u!222 &1893743879
+CanvasRenderer:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893743877}
+  m_CullTransparentMesh: 1
+--- !u!224 &1893743880
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1893743877}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 495655082}
+  m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0, y: 0.5}
+  m_AnchorMax: {x: 0, y: 0.5}
+  m_AnchoredPosition: {x: 467, y: -88}
+  m_SizeDelta: {x: 160, y: 30.003}
+  m_Pivot: {x: 0.5, y: 0.5}
 --- !u!1 &2001367201
 GameObject:
   m_ObjectHideFlags: 0
@@ -1460,7 +1547,7 @@ GameObject:
   - component: {fileID: 2001367205}
   m_Layer: 0
   m_Name: Deathzone Player 1
-  m_TagString: Deathzone
+  m_TagString: Deathzone1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -1556,7 +1643,7 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 5
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &2001367205
 MonoBehaviour:
@@ -1660,29 +1747,16 @@ GameObject:
   m_Component:
   - component: {fileID: 2036561278}
   - component: {fileID: 2036561277}
-  - component: {fileID: 2036561276}
   - component: {fileID: 2036561275}
   - component: {fileID: 2036561274}
-  - component: {fileID: 2036561273}
+  - component: {fileID: 2036561279}
   m_Layer: 0
   m_Name: Paddle Player 2
-  m_TagString: Paddle
+  m_TagString: Paddle2
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
---- !u!114 &2036561273
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036561272}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0ba446b50b35f3f4d8b56d3f24e68903, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!60 &2036561274
 PolygonCollider2D:
   m_ObjectHideFlags: 0
@@ -1751,20 +1825,6 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 6
---- !u!114 &2036561276
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2036561272}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: ae34c9e5fb40a7240b34e5bfc2b7add1, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  speed: 7
-  size: {x: 0, y: 0}
 --- !u!212 &2036561277
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -1830,5 +1890,20 @@ Transform:
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 0}
-  m_RootOrder: 13
+  m_RootOrder: 8
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 90}
+--- !u!114 &2036561279
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2036561272}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ae34c9e5fb40a7240b34e5bfc2b7add1, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  speed: 7
+  size: {x: 0, y: 0}
+  player: 0

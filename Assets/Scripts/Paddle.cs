@@ -5,11 +5,21 @@ using System.Threading;
 public class Paddle : MonoBehaviour
 {   public static Paddle instance;
     public float speed = 7f;
-     public Vector2 size;
+    public Vector2 size;
+    public int player;
 
     private float input;
-    // Start is called before the first frame update
+
+    void Awake(){
+      if(gameObject.tag == "Paddle1"){
+        player = 1;
+      }
+      else{
+        player = 2;
+      }
+    }
     
+    // Start is called before the first frame update
     void Start()
     {
         
@@ -19,15 +29,23 @@ public class Paddle : MonoBehaviour
     void Update()
     {
       Vector2 pos = transform.position;
-        
-      if (Input.GetKey("left")){
-
-        pos.x -= speed * Time.deltaTime;
-      }
+      if(player == 1){
+        if (Input.GetKey("left")){
+          pos.x -= speed * Time.deltaTime;
+        }
          
-      if (Input.GetKey("right")){
-       
-        pos.x += speed * Time.deltaTime;
+        if (Input.GetKey("right")){
+          pos.x += speed * Time.deltaTime;
+        }
+      }
+      if(player == 2){
+        if (Input.GetKey(KeyCode.A)){
+          pos.x -= speed * Time.deltaTime;
+        }
+         
+        if (Input.GetKey(KeyCode.D)){
+          pos.x += speed * Time.deltaTime;
+        }
       }
       transform.position = pos;
     }
@@ -54,10 +72,10 @@ public class Paddle : MonoBehaviour
           StartCoroutine(BallspeedDecrease());
           break;
         case "ExtraLife":
-          ScoreManager.instance.AddLive(); 
+          ScoreManager.instance.AddLive(player); 
           break;
         case "Multiball":
-          BallManager.instance.Spawnball();
+          BallManager.instance.Spawnball(gameObject.tag);
           break;
         case "MinusScore":
           ScoreManager.instance.RemovePoints(20);
@@ -66,11 +84,11 @@ public class Paddle : MonoBehaviour
           StartCoroutine(Slowdown());
           break;
         case "Speedball":
-        StartCoroutine(Speedball());
+          StartCoroutine(Speedball());
           break;
       }
       
-      if (collided.tag != "Ball"){
+      if (collided.tag != "Ball1" || collided.tag != "Ball2"){
         Destroy(collided);
       }
     }

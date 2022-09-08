@@ -24,9 +24,4 @@ public class Ball : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = speed * (GetComponent<Rigidbody2D>().velocity.normalized);
     }
-
-    public void Respawn(){
-        transform.position = Vector3.zero;
-        GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * speed;
-    }
 }

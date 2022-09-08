@@ -8,11 +8,13 @@ public class ScoreManager : MonoBehaviour
     public static ScoreManager instance;
     public Text scoreText;
     public Text highscoreText;
-    public Text lebentext;
+    public Text lebentext1;
+    public Text lebentext2;
 
     int score = 0;
     int highscore = 0;
-    public int leben = 3;
+    public int leben1 = 3;
+    public int leben2 = 3;
 
     private void Awake(){
         instance = this;
@@ -22,9 +24,10 @@ public class ScoreManager : MonoBehaviour
     void Start()
     {    
         highscore = PlayerPrefs.GetInt("highscore", 0);
-         scoreText.text =  "Punkte: " + score.ToString();
-         highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
-         lebentext.text = "Leben: " + leben.ToString();
+        scoreText.text =  "Punkte: " + score.ToString();
+        highscoreText.text = "Highscore: " + highscore.ToString() + "Punkte";
+        lebentext1.text = "Leben: " + leben1.ToString();
+        lebentext2.text = "Leben: " + leben2.ToString();
     }
 
     // Update is called once per frame
@@ -53,13 +56,25 @@ public class ScoreManager : MonoBehaviour
         scoreText.text = "Punkte: " + score.ToString() ;
     }
 
-    public void RemoveLive (){
-        leben -= 1;
-        lebentext.text = "Leben: " + leben.ToString();
+    public void RemoveLive (int player){
+        if(player == 1){
+            leben1 -= 1;
+            lebentext1.text = "Leben: " + leben1.ToString(); 
+        }
+        else{
+            leben2 -= 1;
+            lebentext2.text = "Leben: " + leben2.ToString(); 
+        }
     }
 
-    public void AddLive(){
-        leben += 1;
-        lebentext.text = "Leben: " + leben.ToString(); 
+    public void AddLive(int player){
+        if(player == 1){
+            leben1 += 1;
+            lebentext1.text = "Leben: " + leben1.ToString(); 
+        }
+        else{
+            leben2 += 1;
+            lebentext2.text = "Leben: " + leben2.ToString(); 
+        }
     }
 }

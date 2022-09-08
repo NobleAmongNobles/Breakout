@@ -4,10 +4,7 @@
 TagManager:
   serializedVersion: 2
   tags:
-  - Paddle
-  - Deathzone
   - Undefined
-  - Ball
   - Item1
   - BallspeedDecrease
   - ExtraLife
@@ -18,12 +15,15 @@ TagManager:
   - Speedball
   - Speedboost
   - Brick1
-  - Brick
   - Brick3
-  - Brick5
-  - Brick7
   - Brick2
   - Brick4
+  - Deathzone1
+  - Deathzone2
+  - Ball1
+  - Ball2
+  - Paddle1
+  - Paddle2
   layers:
   - Default
   - TransparentFX

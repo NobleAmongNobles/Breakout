@@ -20,24 +20,43 @@ public class Deathzone : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D other){
         GameObject collided = other.gameObject;
-        if(collided.tag == "Ball"){
-            if(BallManager.instance.balls.Count <= 1){
-                ScoreManager.instance.RemoveLive();
-            }
-            else{
-                BallManager.instance.balls.Remove(collided);
-                Destroy(collided);
-            }
+        if(gameObject.tag == "Deathzone1" && collided.tag == "Ball1"){
+            RespawnBall(other.GetComponent<Ball>());
+        }
+        if(gameObject.tag == "Deathzone2" && collided.tag == "Ball2"){
+            RespawnBall(other.GetComponent<Ball>());
+        }
+        if(collided.tag != "Ball1" && collided.tag != "Ball2"){
+            Destroy(collided);
+        }
+    }
 
-            if(ScoreManager.instance.leben>0){
-                other.GetComponent<Ball>().Respawn();
-            }
-            else{
-                SceneManager.LoadScene(2);
+    private void RespawnBall(Ball ball){
+        if(ball.gameObject.tag == "Ball1"){
+            if(BallManager.instance.balls1.Count <= 1){
+                ScoreManager.instance.RemoveLive(1);
             }
         }
         else{
-            Destroy(collided);
+             if(BallManager.instance.balls2.Count <= 1){
+                ScoreManager.instance.RemoveLive(2);
+            }   
+        }
+
+        if(ScoreManager.instance.leben1 > 0 && ScoreManager.instance.leben2 > 0){
+            if(ball.gameObject.tag == "Ball1"){
+                BallManager.instance.balls1.Remove(ball.gameObject);
+                Destroy(ball.gameObject);
+                BallManager.instance.Spawnball("Paddle1");
+            }
+            else{
+                BallManager.instance.balls2.Remove(ball.gameObject);
+                Destroy(ball.gameObject);
+                BallManager.instance.Spawnball("Paddle2");
+            }
+        }
+        else{
+            SceneManager.LoadScene(3);
         }
     }
 }
