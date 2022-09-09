@@ -12,10 +12,14 @@ public class BrickManager : MonoBehaviour
     public GameObject Brick2;
     public GameObject Brick3;
     public GameObject Brick4;
-    public int pointsBrick1 = 10;
-    public int pointsBrick2 = 20;
-    public int pointsBrick3 = 30;
-    public int pointsBrick4 = 40;
+    public int pointsBrick1Player1 = 10;
+    public int pointsBrick2Player1 = 20;
+    public int pointsBrick3Player1 = 30;
+    public int pointsBrick4Player1 = 40;
+    public int pointsBrick1Player2 = 10;
+    public int pointsBrick2Player2 = 20;
+    public int pointsBrick3Player2 = 30;
+    public int pointsBrick4Player2 = 40;
 
     private List<GameObject> bricks = new List<GameObject>();
     

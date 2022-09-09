@@ -15,6 +15,7 @@ public class ItemManager : MonoBehaviour
     public GameObject ItemType7;
     public GameObject ItemType8;
     public GameObject ItemType9;
+    public string playerCalled;
     private List<GameObject> items = new List<GameObject>();
 
     private void Awake(){
@@ -33,9 +34,10 @@ public class ItemManager : MonoBehaviour
 
     }
     
-    public void CallforItems (Vector2 startvector)  {
+    public void CallforItems (Vector2 startvector, string player)  {
         System.Random itemgenerator = new System.Random();
         int randomnumber = itemgenerator.Next(0, 200);
+        playerCalled = player;
         if (randomnumber >= 50 && randomnumber < 60)
         {
             GameObject item = Instantiate(ItemType2, startvector, Quaternion.identity);

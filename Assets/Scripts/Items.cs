@@ -5,10 +5,13 @@ using UnityEngine;
 public class Items : MonoBehaviour
 {
     public Items instance;
-    protected int speed = 3; 
+    protected int speed = 3;
+    protected string player; 
     
-    void Awake(){
+    void Awake()
+    {
       instance = this;
+      player = ItemManager.instance.playerCalled;
     }
 
     // Start is called before the first frame update
@@ -19,7 +22,15 @@ public class Items : MonoBehaviour
 
     // Update is called once per frame
     void Update()
-    {
-      transform.Translate(Vector2.down * Time.deltaTime * speed, 0);
+    { 
+      if(player == "Ball1")
+      {
+        transform.Translate(Vector2.down * Time.deltaTime * speed, 0);
+      }
+      else
+      {
+        transform.Translate(Vector2.up * Time.deltaTime * speed, 0);
+      }
+      
     }
 }

@@ -9,7 +9,11 @@ public class Ball : MonoBehaviour
 
     private void Awake(){
         instance = this;
-        transform.position = Vector3.zero;
+        StartCoroutine(Spawn());
+    }
+
+    IEnumerator Spawn(){
+        yield return new WaitForSeconds(3);
         GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * speed;
     }
     

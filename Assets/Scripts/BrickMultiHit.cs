@@ -41,21 +41,39 @@ public class BrickMultiHit : MonoBehaviour
         hits -= 1;
         string ball = other.gameObject.tag;
         if(hits == 0){
-            switch(gameObject.tag){
-                case "Brick1": 
-                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick1, ball);
-                    break;
-                case "Brick2":
-                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick2, ball);
-                    break;
-                case "Brick3":
-                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick3, ball);
-                    break;
-                case "Brick4":
-                    ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick4, ball);
-                    break;
+            if(ball == "Ball1"){
+                switch(gameObject.tag){
+                    case "Brick1": 
+                        ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick1Player1, ball);
+                        break;
+                    case "Brick2":
+                        ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick2Player1, ball);
+                        break;
+                    case "Brick3":
+                        ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick3Player1, ball);
+                        break;
+                    case "Brick4":
+                        ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick4Player1, ball);
+                        break;
+                }
             }
-            ItemManager.instance.CallforItems(transform.position);
+            else{
+               switch(gameObject.tag){
+                    case "Brick1": 
+                        ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick1Player2, ball);
+                        break;
+                    case "Brick2":
+                        ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick2Player2, ball);
+                        break;
+                    case "Brick3":
+                        ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick3Player2, ball);
+                        break;
+                    case "Brick4":
+                        ScoreManager.instance.AddPoint(BrickManager.instance.pointsBrick4Player2, ball);
+                        break;
+                } 
+            }
+            ItemManager.instance.CallforItems(transform.position, ball);
             Destroy(gameObject);
         }
     }

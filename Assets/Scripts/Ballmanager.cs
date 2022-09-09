@@ -44,9 +44,10 @@ public class BallManager : MonoBehaviour
             balls1.Add(ball);
         }
         else{
-            GameObject ball = Instantiate(ball1, Vector2.zero, Quaternion.identity);//position
+            Vector2 spawnVector = new Vector2(0, 2.5f);
+            GameObject ball = Instantiate(ball1, spawnVector * -1, Quaternion.identity);
             balls1.Add(ball);
-            ball = Instantiate(ball2, Vector2.zero, Quaternion.identity);//position
+            ball = Instantiate(ball2, spawnVector, Quaternion.identity);
             balls2.Add(ball); 
         }
 
@@ -58,12 +59,13 @@ public class BallManager : MonoBehaviour
             balls1.Add(ball);
         }
         else{
+            Vector2 spawnVector = new Vector2(0, 2.5f);
             if(player == "Paddle1"){
-                GameObject ball = Instantiate(ball1, Vector2.zero, Quaternion.identity);//position
+                GameObject ball = Instantiate(ball1, spawnVector * -1, Quaternion.identity);
                 balls1.Add(ball);
             }
             else{
-                GameObject ball = Instantiate(ball2, Vector2.zero, Quaternion.identity);//position
+                GameObject ball = Instantiate(ball2, spawnVector, Quaternion.identity);
                 balls2.Add(ball);
             }
         }

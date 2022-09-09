@@ -109,23 +109,52 @@ public class Paddle : MonoBehaviour
     }
 
     IEnumerator Scoremultiply (){
-        BrickManager.instance.pointsBrick1 *= 2;
-        BrickManager.instance.pointsBrick2 *= 2;
-        BrickManager.instance.pointsBrick3 *= 2;
-        BrickManager.instance.pointsBrick4 *= 2;
+      if(player == 1)
+      {
+        BrickManager.instance.pointsBrick1Player1 *= 2;
+        BrickManager.instance.pointsBrick2Player1 *= 2;
+        BrickManager.instance.pointsBrick3Player1 *= 2;
+        BrickManager.instance.pointsBrick4Player1 *= 2;
         yield return new WaitForSeconds(10);
-        BrickManager.instance.pointsBrick1 /= 2;
-        BrickManager.instance.pointsBrick2 /= 2;
-        BrickManager.instance.pointsBrick3 /= 2;
-        BrickManager.instance.pointsBrick4 /= 2;
+        BrickManager.instance.pointsBrick1Player1 /= 2;
+        BrickManager.instance.pointsBrick2Player1 /= 2;
+        BrickManager.instance.pointsBrick3Player1 /= 2;
+        BrickManager.instance.pointsBrick4Player1 /= 2;
+      }
+      else{
+        BrickManager.instance.pointsBrick1Player2 *= 2;
+        BrickManager.instance.pointsBrick2Player2 *= 2;
+        BrickManager.instance.pointsBrick3Player2 *= 2;
+        BrickManager.instance.pointsBrick4Player2 *= 2;
+        yield return new WaitForSeconds(10);
+        BrickManager.instance.pointsBrick1Player2 /= 2;
+        BrickManager.instance.pointsBrick2Player2 /= 2;
+        BrickManager.instance.pointsBrick3Player2 /= 2;
+        BrickManager.instance.pointsBrick4Player2 /= 2;
+      }
     }
 
     IEnumerator BallspeedDecrease (){
-        Ball.instance.speed /= 2f; 
+      if(player == 1){
+        foreach(GameObject ball in BallManager.instance.balls1){
+          ball.GetComponent<Ball>().speed /=2f;
+        }
         yield return new WaitForSeconds(10);
-        Ball.instance.speed *= 2f; 
+        foreach(GameObject ball in BallManager.instance.balls1){
+          ball.GetComponent<Ball>().speed *= 2f;
+        }
+      }
+      else{
+        foreach(GameObject ball in BallManager.instance.balls2){
+          ball.GetComponent<Ball>().speed /=2f;
+        } 
+        yield return new WaitForSeconds(10);
+        foreach(GameObject ball in BallManager.instance.balls2){
+          ball.GetComponent<Ball>().speed *= 2f;
+        }
+      }
     }
-
+    
     IEnumerator Slowdown(){
         speed /= 1.5f;
         yield return new WaitForSeconds(3);
@@ -133,8 +162,23 @@ public class Paddle : MonoBehaviour
     }
 
     IEnumerator Speedball(){
-        Ball.instance.speed *= 1.5f; 
+        if(player == 1){
+        foreach(GameObject ball in BallManager.instance.balls1){
+          ball.GetComponent<Ball>().speed *=1.5f;
+        }
         yield return new WaitForSeconds(3);
-        Ball.instance.speed /= 1.5f; 
+        foreach(GameObject ball in BallManager.instance.balls1){
+          ball.GetComponent<Ball>().speed /= 1.5f;
+        }
+      }
+      else{
+        foreach(GameObject ball in BallManager.instance.balls2){
+          ball.GetComponent<Ball>().speed *=1.5f;
+        } 
+        yield return new WaitForSeconds(3);
+        foreach(GameObject ball in BallManager.instance.balls2){
+          ball.GetComponent<Ball>().speed /= 1.5f;
+        }
+      }
     }
 }
