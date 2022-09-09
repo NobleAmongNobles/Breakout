@@ -40,7 +40,7 @@ public class BallManager : MonoBehaviour
         }
         balls2.Clear();
         if (mode == 1){
-            GameObject ball = Instantiate(ball1, Vector2.zero, Quaternion.identity);
+            GameObject ball = Instantiate(ball1, Vector2.zero - new Vector2(0f,0.5f), Quaternion.identity);
             balls1.Add(ball);
         }
         else{
@@ -55,7 +55,7 @@ public class BallManager : MonoBehaviour
 
     public void Spawnball(string player){
         if(mode == 1){
-            GameObject ball = Instantiate(ball1, Vector2.zero, Quaternion.identity);
+            GameObject ball = Instantiate(ball1, Vector2.zero - new Vector2(0f,0.5f), Quaternion.identity);
             balls1.Add(ball);
         }
         else{
