@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 1172706306232625879}
   - component: {fileID: 3248441652169760520}
   m_Layer: 0
-  m_Name: Item1
+  m_Name: EnlargePaddle
   m_TagString: Item1
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
