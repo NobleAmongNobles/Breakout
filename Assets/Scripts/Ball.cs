@@ -28,13 +28,16 @@ public class Ball : MonoBehaviour
     {
         GetComponent<Rigidbody2D>().velocity = speed * (GetComponent<Rigidbody2D>().velocity.normalized);
         float ratio = GetComponent<Rigidbody2D>().velocity.x / GetComponent<Rigidbody2D>().velocity.y;
-        if(ratio > 25 || ratio < -25){
+        if(ratio > 40 || ratio < -40){
             if(GetComponent<Rigidbody2D>().velocity.y > 0){
-                GetComponent<Rigidbody2D>().velocity += new Vector2(0,1f);
+                GetComponent<Rigidbody2D>().velocity += new Vector2(0,0.5f);
             }
             else{
-                GetComponent<Rigidbody2D>().velocity -= new Vector2(0,1f);
+                GetComponent<Rigidbody2D>().velocity -= new Vector2(0,0.5f);
             }
+        }
+        if(ratio < 0.001f && -0.001 < ratio){
+            GetComponent<Rigidbody2D>().velocity += new Vector2(0.5f,0);
         }
     }
 }
