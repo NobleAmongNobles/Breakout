@@ -19,8 +19,8 @@ public class GameOverScreen : MonoBehaviour
 		}else{
 			newHighscore.enabled = false;
 		}
-		finalScorePlayer1.text = "Final Score Player 1: " + ScoreManager.instance.score1.ToString();
 		finalScorePlayer2.text = "Final Score Player 2: " + ScoreManager.instance.score2.ToString();
+		finalScorePlayer1.text = "Final Score Player 1: " + ScoreManager.instance.score1.ToString();
 	}
 	public void NewHighscoreName1(){
 		Debug.Log(highScoreName1.text);
@@ -30,7 +30,7 @@ public class GameOverScreen : MonoBehaviour
 		ScoreManager.instance.NewHighscore(new HighscoreElement(highScoreName2.text, ScoreManager.instance.score2));
 	}
 	public void HighscoreListe(){
-		SceneManager.LoadScene(4);
+		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
 	}
 	public void BackToMenu()
 	{

@@ -6,6 +6,8 @@ using UnityEngine.SceneManagement;
 
 public class Deathzone : MonoBehaviour
 {
+    public int player = 0;
+    
     // Start is called before the first frame update
     void Start()
     {
@@ -60,7 +62,12 @@ public class Deathzone : MonoBehaviour
             }
         }
         else{
-            SceneManager.LoadScene(3);
+            if(player == 1){
+                SceneManager.LoadScene(3);
+            }
+            else{
+                SceneManager.LoadScene(5);
+            }
         }
     }
 }

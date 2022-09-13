@@ -234,6 +234,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686be448d7a95fa47a39679275405771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 2
 --- !u!61 &166982810
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -437,8 +438,7 @@ MonoBehaviour:
   highscore: 0
   leben1: 3
   leben2: 3
-  highscores: 
-  Names: []
+  highscores: []
 --- !u!114 &495655079
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1749,6 +1749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 686be448d7a95fa47a39679275405771, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  player: 2
 --- !u!1 &2034439238
 GameObject:
   m_ObjectHideFlags: 0
