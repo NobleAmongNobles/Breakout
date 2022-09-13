@@ -468,7 +468,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 66a21736cc436fe42921713aa9e522b0, type: 3}
+  m_Texture: {fileID: 2800000, guid: d48ddc38e1564854d8e3b7e8361ba299, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -654,8 +654,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 0, y: 0.0011138916}
-  m_SizeDelta: {x: 0, y: -699.54}
+  m_AnchoredPosition: {x: 0, y: 0.00050354004}
+  m_SizeDelta: {x: 0, y: -778}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1251277002
 MonoBehaviour:
@@ -809,7 +809,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Texture: {fileID: 2800000, guid: 3e03ad661f4fc9a4a8eba3111f6732d4, type: 3}
+  m_Texture: {fileID: 2800000, guid: 2c323e83389cabc46bf2948daeaf3071, type: 3}
   m_UVRect:
     serializedVersion: 2
     x: 0
@@ -939,6 +939,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 1749102566}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 24357964517f38a45a5d870a4d03245e, type: 3}
+  m_Script: {fileID: 11500000, guid: 2c42eccae803b6f4089d35c82e7d8b5c, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
