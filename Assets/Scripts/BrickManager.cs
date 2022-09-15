@@ -49,7 +49,7 @@ public class BrickManager : MonoBehaviour
         for(int x = 0; x < columns; x++){
             for(int y = 0; y < rows; y++){
                 int randomnumber = itemgenerator.Next(4);
-                GameObject prefab;
+                GameObject prefab = Brick1;
                 switch(randomnumber){
                     case 0:
                         prefab = Brick1;
