@@ -79,7 +79,7 @@ public class BrickMultiHit : MonoBehaviour
                 BrickManager.instance.bricks.Remove(gameObject);
                 Destroy(gameObject);
                 if(BrickManager.instance.bricks.Count == 0){
-                    SceneManager.LoadScene(7);
+                    SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
             }else{
                 StartCoroutine(Respawn(gameObject));

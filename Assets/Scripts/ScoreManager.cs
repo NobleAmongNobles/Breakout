@@ -43,7 +43,6 @@ public class ScoreManager : MonoBehaviour
 
 
         highscore = PlayerPrefs.GetInt("highscore1", 0);
-    if(SceneManager.GetActiveScene().name != "GameOver" || SceneManager.GetActiveScene().name != "HighscoreListe")
         scoreText1.text =  "Punkte: " + score1.ToString();
         scoreText2.text =  "Punkte: " + score2.ToString();
         highscoreText.text = "Highscore: " + highscore + " Punkte";

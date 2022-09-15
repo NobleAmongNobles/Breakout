@@ -63,10 +63,10 @@ public class Deathzone : MonoBehaviour
         }
         else{
             if(player == 1){
-                SceneManager.LoadScene(3);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
             else{
-                SceneManager.LoadScene(5);
+                SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
             }
         }
     }
