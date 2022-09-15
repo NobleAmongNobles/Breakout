@@ -82,7 +82,6 @@ public class BrickMultiHit : MonoBehaviour
                     SceneManager.LoadScene(7);
                 }
             }else{
-                Debug.Log("Respawn");
                 StartCoroutine(Respawn(gameObject));
             }
         }
@@ -92,18 +91,15 @@ public class BrickMultiHit : MonoBehaviour
         var color = gameObject.GetComponent<SpriteRenderer>().material.color;
         color.a = 0f;
         gameObject.GetComponent<SpriteRenderer>().material.color = color;
-        Debug.Log("I am inactive");
         yield return new WaitForSeconds(5);
         gameObject.GetComponent<Collider2D>().enabled = true;
         color.a = 1f;
         gameObject.GetComponent<SpriteRenderer>().material.color = color;
-        Debug.Log(gameObject.tag);
         switch (gameObject.tag){
             case "Brick1": 
                 hits = 1;
                 break;
             case "Brick2":
-                Debug.Log("Case2");
                 hits = 2;
                 break;
             case "Brick3":
@@ -113,7 +109,5 @@ public class BrickMultiHit : MonoBehaviour
                 hits = 4;
                 break;   
         }
-        Debug.Log(hits);
-        Debug.Log("Stopped waiting");  
     }
 }

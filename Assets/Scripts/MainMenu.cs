@@ -29,7 +29,6 @@ public class MainMenu : MonoBehaviour
     }
     public void Endless(){
         endless = true;
-        Debug.Log("endless");
         PlayGame();
     }
 }

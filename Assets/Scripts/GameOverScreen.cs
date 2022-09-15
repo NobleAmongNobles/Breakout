@@ -23,7 +23,6 @@ public class GameOverScreen : MonoBehaviour
 		finalScorePlayer1.text = "Final Score Player 1: " + ScoreManager.instance.score1.ToString();
 	}
 	public void NewHighscoreName1(){
-		Debug.Log(highScoreName1.text);
 		ScoreManager.instance.NewHighscore(new HighscoreElement(highScoreName1.text, ScoreManager.instance.score1));	
 	}
 	public void NewHighscoreName2(){
