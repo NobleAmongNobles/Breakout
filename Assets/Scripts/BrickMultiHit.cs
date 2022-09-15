@@ -39,6 +39,10 @@ public class BrickMultiHit : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other){
+        if(endless){
+            Ball.additionalSpeed *= 1.01f;
+            Paddle.additionalSpeed = Ball.additionalSpeed;
+        }
         hits -= 1;
         string ball = other.gameObject.tag;
         if(hits == 0){

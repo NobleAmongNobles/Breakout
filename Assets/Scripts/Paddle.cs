@@ -5,6 +5,7 @@ using System.Threading;
 public class Paddle : MonoBehaviour
 {   public static Paddle instance;
     public float speed = 7f;
+    public static float additionalSpeed = 1f;
     public Vector2 size;
     public int player;
 

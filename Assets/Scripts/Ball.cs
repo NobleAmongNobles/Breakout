@@ -5,7 +5,8 @@ using UnityEngine;
 public class Ball : MonoBehaviour
 {   
     public static Ball instance;
-    public float speed = 7f;
+    public float speed = 6f;
+    public static float additionalSpeed = 1;
 
     private void Awake(){
         instance = this;
@@ -14,7 +15,7 @@ public class Ball : MonoBehaviour
 
     IEnumerator Spawn(){
         yield return new WaitForSeconds(3);
-        GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * speed;
+        GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * (speed + additionalSpeed);
     }
     
     // Start is called before the first frame update
@@ -26,7 +27,8 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        GetComponent<Rigidbody2D>().velocity = speed * (GetComponent<Rigidbody2D>().velocity.normalized);
+        Debug.Log("speed: " + (speed+additionalSpeed));
+        GetComponent<Rigidbody2D>().velocity = (speed + additionalSpeed) * (GetComponent<Rigidbody2D>().velocity.normalized);
         float ratio = GetComponent<Rigidbody2D>().velocity.x / GetComponent<Rigidbody2D>().velocity.y;
         if(ratio > 40 || ratio < -40){
             if(GetComponent<Rigidbody2D>().velocity.y > 0){

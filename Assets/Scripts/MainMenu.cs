@@ -12,6 +12,7 @@ public class MainMenu : MonoBehaviour
         instance = this;
     }
     public void PlayGame(){
+        Ball.additionalSpeed = 1;
         if(singleplayer){
             SceneManager.LoadScene(1);
         }

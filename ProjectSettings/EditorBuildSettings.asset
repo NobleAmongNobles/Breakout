@@ -12,14 +12,14 @@ EditorBuildSettings:
     path: Assets/Scenes/Game.unity
     guid: 3dc5f9fefc0d21a4fac421a5bf353fc4
   - enabled: 1
-    path: Assets/Scenes/Game 2 Player.unity
-    guid: b91c6996d5495ff4ab8b8880174fa937
-  - enabled: 1
     path: Assets/Scenes/GameOver1.unity
     guid: eb62ba5e7086c4a40b229f8721a9acc2
   - enabled: 1
     path: Assets/Scenes/HighscoreListe1.unity
     guid: 69a8a2db5d447bc4ca8c05140c88e662
+  - enabled: 1
+    path: Assets/Scenes/Game 2 Player.unity
+    guid: b91c6996d5495ff4ab8b8880174fa937
   - enabled: 1
     path: Assets/Scenes/GameOver2.unity
     guid: 115c495dcc24f1648a3d195fc2a0e4bc
@@ -29,7 +29,4 @@ EditorBuildSettings:
   - enabled: 0
     path: Assets/Scenes/Controls.unity
     guid: 872a3527171cea1498ee06708d2ab346
-  - enabled: 1
-    path: Assets/Scenes/Game finish.unity
-    guid: 32bdca3ff79118946aff12482c9117ce
   m_configObjects: {}

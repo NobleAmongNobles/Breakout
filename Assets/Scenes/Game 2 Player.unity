@@ -1231,6 +1231,7 @@ MonoBehaviour:
   pointsBrick2Player2: 20
   pointsBrick3Player2: 30
   pointsBrick4Player2: 40
+  bricks: []
 --- !u!4 &1573903907
 Transform:
   m_ObjectHideFlags: 0
@@ -1327,7 +1328,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae34c9e5fb40a7240b34e5bfc2b7add1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 6
   size: {x: 0, y: 0}
   player: 0
 --- !u!212 &1655475336
@@ -1997,6 +1998,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ae34c9e5fb40a7240b34e5bfc2b7add1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
+  speed: 6
   size: {x: 0, y: 0}
   player: 0
