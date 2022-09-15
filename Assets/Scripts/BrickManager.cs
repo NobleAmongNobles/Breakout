@@ -21,7 +21,7 @@ public class BrickManager : MonoBehaviour
     public int pointsBrick3Player2 = 30;
     public int pointsBrick4Player2 = 40;
 
-    private List<GameObject> bricks = new List<GameObject>();
+    public List<GameObject> bricks = new List<GameObject>();
     
     // Start is called before the first frame update
     void Start()

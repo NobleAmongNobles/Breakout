@@ -913,6 +913,7 @@ MonoBehaviour:
   pointsBrick2Player2: 20
   pointsBrick3Player2: 30
   pointsBrick4Player2: 40
+  bricks: []
 --- !u!4 &1573903907
 Transform:
   m_ObjectHideFlags: 0

@@ -1,11 +1,12 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
-
+using UnityEngine.SceneManagement;
 public class BrickMultiHit : MonoBehaviour
 {  
     public BrickMultiHit instance;
     public int hits;
+    public bool endless;
     
     public void Awake(){
         switch (gameObject.tag){
@@ -74,7 +75,45 @@ public class BrickMultiHit : MonoBehaviour
                 } 
             }
             ItemManager.instance.CallforItems(transform.position, ball);
-            Destroy(gameObject);
+            if (!MainMenu.instance.endless){
+                BrickManager.instance.bricks.Remove(gameObject);
+                Destroy(gameObject);
+                if(BrickManager.instance.bricks.Count == 0){
+                    SceneManager.LoadScene(7);
+                }
+            }else{
+                Debug.Log("Respawn");
+                StartCoroutine(Respawn(gameObject));
+            }
         }
+    }
+    IEnumerator Respawn(GameObject gameObject){
+        gameObject.GetComponent<Collider2D>().enabled = false;
+        var color = gameObject.GetComponent<SpriteRenderer>().material.color;
+        color.a = 0f;
+        gameObject.GetComponent<SpriteRenderer>().material.color = color;
+        Debug.Log("I am inactive");
+        yield return new WaitForSeconds(5);
+        gameObject.GetComponent<Collider2D>().enabled = true;
+        color.a = 1f;
+        gameObject.GetComponent<SpriteRenderer>().material.color = color;
+        Debug.Log(gameObject.tag);
+        switch (gameObject.tag){
+            case "Brick1": 
+                hits = 1;
+                break;
+            case "Brick2":
+                Debug.Log("Case2");
+                hits = 2;
+                break;
+            case "Brick3":
+                hits = 3;
+                break;
+            case "Brick4":
+                hits = 4;
+                break;   
+        }
+        Debug.Log(hits);
+        Debug.Log("Stopped waiting");  
     }
 }
