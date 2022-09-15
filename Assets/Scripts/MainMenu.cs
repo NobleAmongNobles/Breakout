@@ -4,9 +4,13 @@ using UnityEngine;
 using UnityEngine.SceneManagement;
 
 public class MainMenu : MonoBehaviour
-{
+{   public static MainMenu instance;
     public bool singleplayer = true;
+    public bool endless = false;
 
+    void Awake(){
+        instance = this;
+    }
     public void PlayGame(){
         if(singleplayer){
             SceneManager.LoadScene(1);
@@ -22,5 +26,10 @@ public class MainMenu : MonoBehaviour
 
     public void ToggleMultiplayer(){
         singleplayer = !singleplayer;
+    }
+    public void Endless(){
+        endless = true;
+        Debug.Log("endless");
+        PlayGame();
     }
 }

@@ -126,3 +126,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   instance: {fileID: 0}
   hits: 0
+  endless: 0
