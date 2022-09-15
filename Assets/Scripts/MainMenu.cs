@@ -16,7 +16,7 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene(1);
         }
         else{
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(4);
         }
     }
 
