@@ -49,42 +49,28 @@ public class BrickManager : MonoBehaviour
         for(int x = 0; x < columns; x++){
             for(int y = 0; y < rows; y++){
                 int randomnumber = itemgenerator.Next(4);
-                if(randomnumber == 0){
-                    Vector2 spawnPos = (Vector2)transform.position + new Vector2
-                    (
-                        x * (Brick1.transform.localScale.x + spacing),
-                        -y * (Brick1.transform.localScale.y + spacing)
-                    );
-                    GameObject brick = Instantiate(Brick1, spawnPos, Quaternion.identity);
-                    bricks.Add(brick);
+                GameObject prefab;
+                switch(randomnumber){
+                    case 0:
+                        prefab = Brick1;
+                        break;
+                    case 1:
+                        prefab = Brick2;
+                        break;
+                    case 2:
+                        prefab = Brick2;
+                        break;
+                    case 3:
+                        prefab = Brick4;
+                        break;
                 }
-                if (randomnumber == 1){
-                    Vector2 spawnPos = (Vector2)transform.position + new Vector2
-                    (
-                        x * (Brick2.transform.localScale.x + spacing),
-                        -y * (Brick2.transform.localScale.y + spacing)
-                    );
-                    GameObject brick = Instantiate(Brick2, spawnPos, Quaternion.identity);
-                    bricks.Add(brick);
-                } 
-                if(randomnumber == 2){
-                    Vector2 spawnPos = (Vector2)transform.position + new Vector2
-                    (
-                        x * (Brick3.transform.localScale.x + spacing),
-                        -y * (Brick3.transform.localScale.y + spacing)
-                    );
-                    GameObject brick = Instantiate(Brick3, spawnPos, Quaternion.identity);
-                    bricks.Add(brick);
-                }
-                if(randomnumber == 3){
-                    Vector2 spawnPos = (Vector2)transform.position + new Vector2
-                    (
-                        x * (Brick4.transform.localScale.x + spacing),
-                        -y * (Brick4.transform.localScale.y + spacing)
-                    );
-                    GameObject brick = Instantiate(Brick4, spawnPos, Quaternion.identity);
-                    bricks.Add(brick);
-                }
+                Vector2 spawnPos = (Vector2)transform.position + new Vector2
+                (
+                    x * (prefab.transform.localScale.x + spacing),
+                    -y * (prefab.transform.localScale.y + spacing)
+                );
+                GameObject brick = Instantiate(prefab, spawnPos, Quaternion.identity);
+                bricks.Add(brick);
             }
         }
     }

@@ -27,6 +27,7 @@ public class MainMenu : MonoBehaviour
     public void ToggleMultiplayer(){
         singleplayer = !singleplayer;
     }
+    
     public void Endless(){
         endless = true;
         PlayGame();
