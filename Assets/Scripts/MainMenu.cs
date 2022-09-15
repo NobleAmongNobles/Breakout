@@ -13,6 +13,7 @@ public class MainMenu : MonoBehaviour
     }
     public void PlayGame(){
         Ball.additionalSpeed = 1;
+        Paddle.additionalSpeed = 1;
         if(singleplayer){
             SceneManager.LoadScene(1);
         }
