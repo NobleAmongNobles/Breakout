@@ -58,7 +58,7 @@ public class BrickManager : MonoBehaviour
                         prefab = Brick2;
                         break;
                     case 2:
-                        prefab = Brick2;
+                        prefab = Brick3;
                         break;
                     case 3:
                         prefab = Brick4;
