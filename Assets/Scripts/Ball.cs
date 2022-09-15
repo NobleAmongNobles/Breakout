@@ -27,7 +27,6 @@ public class Ball : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        Debug.Log("speed: " + (speed+additionalSpeed));
         GetComponent<Rigidbody2D>().velocity = (speed + additionalSpeed) * (GetComponent<Rigidbody2D>().velocity.normalized);
         float ratio = GetComponent<Rigidbody2D>().velocity.x / GetComponent<Rigidbody2D>().velocity.y;
         if(ratio > 40 || ratio < -40){

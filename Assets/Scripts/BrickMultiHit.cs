@@ -6,7 +6,6 @@ public class BrickMultiHit : MonoBehaviour
 {  
     public BrickMultiHit instance;
     public int hits;
-    public bool endless;
     
     public void Awake(){
         switch (gameObject.tag){
@@ -39,7 +38,7 @@ public class BrickMultiHit : MonoBehaviour
     }
 
     private void OnCollisionEnter2D(Collision2D other){
-        if(endless){
+        if(MainMenu.instance.endless){
             Ball.additionalSpeed *= 1.01f;
             Paddle.additionalSpeed = Ball.additionalSpeed;
         }
@@ -83,6 +82,12 @@ public class BrickMultiHit : MonoBehaviour
                 BrickManager.instance.bricks.Remove(gameObject);
                 Destroy(gameObject);
                 if(BrickManager.instance.bricks.Count == 0){
+                    if(ScoreManager.instance.leben1 > 0){
+                        ScoreManager.instance.score1 += 250;
+                    }
+                    if(ScoreManager.instance.leben2 > 0){
+                        ScoreManager.instance.score2 += 250;
+                    }
                     SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
                 }
             }else{
