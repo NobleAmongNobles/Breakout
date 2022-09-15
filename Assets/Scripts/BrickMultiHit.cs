@@ -91,7 +91,7 @@ public class BrickMultiHit : MonoBehaviour
         var color = gameObject.GetComponent<SpriteRenderer>().material.color;
         color.a = 0f;
         gameObject.GetComponent<SpriteRenderer>().material.color = color;
-        yield return new WaitForSeconds(5);
+        yield return new WaitForSeconds(45);
         gameObject.GetComponent<Collider2D>().enabled = true;
         color.a = 1f;
         gameObject.GetComponent<SpriteRenderer>().material.color = color;
