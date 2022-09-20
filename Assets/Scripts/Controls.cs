@@ -6,8 +6,12 @@ using UnityEngine.SceneManagement;
 
 public class Controls : MonoBehaviour
 {
-    public void proceedToMenu()
+
+    void Update()
     {
-        SceneManager.LoadScene(0);
+        if (Input.GetMouseButtonDown(0) || Input.GetMouseButtonDown(1) || Input.GetMouseButtonDown(2))
+        {
+            SceneManager.LoadScene(0);
+        }
     }
 }
