@@ -34,4 +34,8 @@ public class MainMenu : MonoBehaviour
         endless = true;
         PlayGame();
     }
+
+    public void ShowControls(){
+        SceneManager.LoadScene(7);
+    }
 }
