@@ -2,10 +2,13 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+
 public class BrickMultiHit : MonoBehaviour
 {  
     public BrickMultiHit instance;
     public int hits;
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] spriteArray;
     
     public void Awake(){
         switch (gameObject.tag){
@@ -42,6 +45,7 @@ public class BrickMultiHit : MonoBehaviour
             Ball.additionalSpeed *= 1.01f;
             Paddle.additionalSpeed = Ball.additionalSpeed;
         }
+
         hits -= 1;
         string ball = other.gameObject.tag;
         if(hits == 0){
@@ -94,7 +98,11 @@ public class BrickMultiHit : MonoBehaviour
                 StartCoroutine(Respawn(gameObject));
             }
         }
+        else{
+            ChangeSprite();
+        }
     }
+
     IEnumerator Respawn(GameObject gameObject){
         gameObject.GetComponent<Collider2D>().enabled = false;
         var color = gameObject.GetComponent<SpriteRenderer>().material.color;
@@ -118,5 +126,11 @@ public class BrickMultiHit : MonoBehaviour
                 hits = 4;
                 break;   
         }
+    }
+
+    public void ChangeSprite() 
+    {
+        spriteRenderer.sprite = spriteArray[hits - 1];
+        spriteRenderer.transform.localScale = new Vector3(1,1,1);
     }
 }
