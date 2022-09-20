@@ -15,10 +15,10 @@ public class MainMenu : MonoBehaviour
         Ball.additionalSpeed = 1;
         Paddle.additionalSpeed = 1;
         if(singleplayer){
-            SceneManager.LoadScene(2);
+            SceneManager.LoadScene(1);
         }
         else{
-            SceneManager.LoadScene(5);
+            SceneManager.LoadScene(4);
         }
     }
 
@@ -36,6 +36,6 @@ public class MainMenu : MonoBehaviour
     }
 
     public void ShowControls(){
-        SceneManager.LoadScene(1);
+        SceneManager.LoadScene(7);
     }
 }
