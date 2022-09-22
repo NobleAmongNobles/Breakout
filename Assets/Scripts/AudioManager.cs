@@ -18,6 +18,7 @@ public class AudioManager : MonoBehaviour
             backgroundMusic[1].Play(0);
             break; 
         case 2: 
+            backgroundMusic[2].Play(0);
             break;
         case 3: 
             backgroundMusic[3].Play(0);
