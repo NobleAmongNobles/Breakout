@@ -20,7 +20,7 @@ public class Backgrounds : MonoBehaviour
             }
         } //Auffangen, falls die ChooseBackground instance noch nicht initialisiert wurde.
         catch{
-            background = 3;
+            background = 0;
         }
         spriteRenderer.sprite = spriteArray[background];
         spriteRenderer.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
