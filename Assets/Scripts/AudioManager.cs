@@ -14,7 +14,6 @@ public class AudioManager : MonoBehaviour
             backgroundMusic[0].Play(0);
             break;
         case 1: 
-            Debug.Log(backgroundMusic[1]);
             backgroundMusic[1].Play(0);
             break; 
         case 2: 
