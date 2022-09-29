@@ -2320,6 +2320,12 @@ MonoBehaviour:
   speed: 6
   size: {x: 0, y: 0}
   player: 0
+  spriteRenderer: {fileID: 1655475336}
+  spriteArray:
+  - {fileID: -9095717837082945937, guid: 1a61f0d749be7624381d2dd8f0730d41, type: 3}
+  - {fileID: 21300000, guid: ccffc94ab154f5d4583101b3262b91c5, type: 3}
+  - {fileID: 21300000, guid: aacebcc0a861cd146b24e0bc8d475c8b, type: 3}
+  - {fileID: 21300000, guid: 79687d3fb55f7a2408ca5928e1adb30c, type: 3}
 --- !u!212 &1655475336
 SpriteRenderer:
   m_ObjectHideFlags: 0
