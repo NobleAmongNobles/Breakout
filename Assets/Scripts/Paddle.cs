@@ -10,6 +10,8 @@ public class Paddle : MonoBehaviour
     public static float additionalSpeed = 1f;
     public Vector2 size;
     public int player;
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] spriteArray;
     AudioSource[] itemSounds;
 
     private float input;
@@ -18,18 +20,23 @@ public class Paddle : MonoBehaviour
       itemSounds = GetComponents<AudioSource>();
       if(gameObject.tag == "Paddle1"){
         player = 1;
+        try{
+          spriteRenderer.sprite = spriteArray[(int)ChoosePaddle.instance.PaddlePlayer1];
+        }
+        catch{
+          spriteRenderer.sprite = spriteArray[0];
+        }        
       }
       else{
         player = 2;
+        try{
+          spriteRenderer.sprite = spriteArray[(int)ChoosePaddle.instance.PaddlePlayer2];
+        }
+        catch{
+          spriteRenderer.sprite = spriteArray[0];
+        }
       }
     }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
