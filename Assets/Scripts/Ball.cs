@@ -7,6 +7,8 @@ public class Ball : MonoBehaviour
     public static Ball instance;
     public float speed = 6f;
     public static float additionalSpeed = 1;
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] spriteArray;
 
     private void Awake(){
         instance = this;
@@ -14,6 +16,22 @@ public class Ball : MonoBehaviour
     }
 
     IEnumerator Spawn(){
+        if(gameObject.tag == "Ball1"){
+            try{
+                spriteRenderer.sprite = spriteArray[(int)ChooseBall.instance.ballPlayer1];
+            }
+            catch{
+                spriteRenderer.sprite = spriteArray[0];
+            }           
+        }
+        if(gameObject.tag == "Ball2"){
+           try{
+                spriteRenderer.sprite = spriteArray[(int)ChooseBall.instance.ballPlayer2];
+            }
+            catch{
+                spriteRenderer.sprite = spriteArray[0];
+            } 
+        }
         yield return new WaitForSeconds(3);
         GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * (speed + additionalSpeed);
     }

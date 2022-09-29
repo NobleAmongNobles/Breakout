@@ -2,30 +2,41 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using System.Threading;
+
+[RequireComponent(typeof(AudioSource))]
 public class Paddle : MonoBehaviour
 {   public static Paddle instance;
     public float speed = 7f;
     public static float additionalSpeed = 1f;
     public Vector2 size;
     public int player;
+    public SpriteRenderer spriteRenderer;
+    public Sprite[] spriteArray;
+    AudioSource[] itemSounds;
 
     private float input;
 
     void Awake(){
+      itemSounds = GetComponents<AudioSource>();
       if(gameObject.tag == "Paddle1"){
         player = 1;
+        try{
+          spriteRenderer.sprite = spriteArray[(int)ChoosePaddle.instance.PaddlePlayer1];
+        }
+        catch{
+          spriteRenderer.sprite = spriteArray[0];
+        }        
       }
       else{
         player = 2;
+        try{
+          spriteRenderer.sprite = spriteArray[(int)ChoosePaddle.instance.PaddlePlayer2];
+        }
+        catch{
+          spriteRenderer.sprite = spriteArray[0];
+        }
       }
     }
-    
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
-
     // Update is called once per frame
     void Update()
     {
@@ -61,30 +72,39 @@ public class Paddle : MonoBehaviour
 
       switch(collided.tag){
         case "Item1":
+          itemSounds[0].Play(0);
           StartCoroutine(Resize());
           break;
         case "Speedboost":
+          itemSounds[1].Play(0);
           StartCoroutine(Speedup()); 
           break;
         case "Scoremodifier":
+          itemSounds[2].Play(0);
           StartCoroutine(Scoremultiply()); 
           break;
         case "BallspeedDecrease":
+          itemSounds[3].Play(0);
           StartCoroutine(BallspeedDecrease());
           break;
         case "ExtraLife":
+          itemSounds[4].Play(0);
           ScoreManager.instance.AddLive(player); 
           break;
         case "Multiball":
+          itemSounds[5].Play(0);
           BallManager.instance.Spawnball(gameObject.tag);
           break;
         case "MinusScore":
+          itemSounds[6].Play(0);
           ScoreManager.instance.RemovePoints(20, player);
           break;
         case "SlowDown":
+          itemSounds[7].Play(0);
           StartCoroutine(Slowdown());
           break;
         case "Speedball":
+          itemSounds[8].Play(0);
           StartCoroutine(Speedball());
           break;
       }
@@ -100,6 +120,7 @@ public class Paddle : MonoBehaviour
     }
 
     IEnumerator Resize (){
+      
        size = transform.localScale;
        size.y *= 1.5f;
        transform.localScale = size;
