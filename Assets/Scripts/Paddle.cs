@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 using System.Threading;
 
 [RequireComponent(typeof(AudioSource))]
@@ -13,11 +14,13 @@ public class Paddle : MonoBehaviour
     public SpriteRenderer spriteRenderer;
     public Sprite[] spriteArray;
     AudioSource[] itemSounds;
+    bool singleplayer;
 
     private float input;
 
     void Awake(){
       itemSounds = GetComponents<AudioSource>();
+      singleplayer = MainMenu.instance.singleplayer;
       if(gameObject.tag == "Paddle1"){
         player = 1;
         try{
@@ -39,26 +42,26 @@ public class Paddle : MonoBehaviour
     }
     // Update is called once per frame
     void Update()
-    {
+    { 
       Vector2 pos = transform.position;
-      if(player == 1){
-        if (Input.GetKey("left")){
-          pos.x -= speed * Time.deltaTime;
+        if(player == 1){
+          if (Input.GetKey("left")){
+            pos.x -= speed * Time.deltaTime;
+          }
+
+          if (Input.GetKey("right")){
+            pos.x += speed * Time.deltaTime;
+          }
         }
-         
-        if (Input.GetKey("right")){
-          pos.x += speed * Time.deltaTime;
+        if(player == 2 || singleplayer  ){
+          if (Input.GetKey(KeyCode.A)){
+            pos.x -= speed * Time.deltaTime;
+          }
+
+          if (Input.GetKey(KeyCode.D)){
+            pos.x += speed * Time.deltaTime;
+          }
         }
-      }
-      if(player == 2){
-        if (Input.GetKey(KeyCode.A)){
-          pos.x -= speed * Time.deltaTime;
-        }
-         
-        if (Input.GetKey(KeyCode.D)){
-          pos.x += speed * Time.deltaTime;
-        }
-      }
       transform.position = pos;
     }
 
