@@ -44,6 +44,16 @@ public class Paddle : MonoBehaviour
     void Update()
     { 
       Vector2 pos = transform.position;
+      if(singleplayer){
+        if (Input.GetKey("left") || Input.GetKey(KeyCode.A)){
+            pos.x -= speed * Time.deltaTime;
+          }
+
+          if (Input.GetKey("right") || Input.GetKey(KeyCode.D)){
+            pos.x += speed * Time.deltaTime;
+          }
+      }
+      else{
         if(player == 1){
           if (Input.GetKey("left")){
             pos.x -= speed * Time.deltaTime;
@@ -53,7 +63,7 @@ public class Paddle : MonoBehaviour
             pos.x += speed * Time.deltaTime;
           }
         }
-        if(player == 2 || singleplayer  ){
+        if(player == 2){
           if (Input.GetKey(KeyCode.A)){
             pos.x -= speed * Time.deltaTime;
           }
@@ -62,6 +72,7 @@ public class Paddle : MonoBehaviour
             pos.x += speed * Time.deltaTime;
           }
         }
+      }
       transform.position = pos;
     }
 
