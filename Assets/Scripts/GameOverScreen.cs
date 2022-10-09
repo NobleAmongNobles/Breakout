@@ -28,9 +28,6 @@ public class GameOverScreen : MonoBehaviour
 	public void NewHighscoreName2(){
 		ScoreManager.instance.NewHighscore(new HighscoreElement(highScoreName2.text, ScoreManager.instance.score2));
 	}
-	public void HighscoreListe(){
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
-	}
 	public void BackToMenu()
 	{
 		SceneManager.LoadScene(0);

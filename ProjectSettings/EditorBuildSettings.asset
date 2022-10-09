@@ -26,9 +26,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/HighscoreListe2.unity
     guid: ee13702e43f981247aad706c3ac9bf3c
-  - enabled: 1
-    path: Assets/Scenes/Controls_SinglePlayer.unity
-    guid: 872a3527171cea1498ee06708d2ab346
+  - enabled: 0
+    path: 
+    guid: 00000000000000000000000000000000
   - enabled: 1
     path: Assets/Scenes/HelpMenu.unity
     guid: e88b8104446916649957fb94547d580d

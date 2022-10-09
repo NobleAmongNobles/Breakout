@@ -31,7 +31,7 @@ public class HighscoreUI : MonoBehaviour
         highscoreText10.text = "10. " +  PlayerPrefs.GetString("Name10") + "  " + PlayerPrefs.GetInt("highscore10",0).ToString();
     }
     public void BacktoGameOver(){
-		SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex - 1);
+		SceneManager.LoadScene(0);
     }
     
    

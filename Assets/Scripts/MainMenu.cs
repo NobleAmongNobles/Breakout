@@ -30,6 +30,9 @@ public class MainMenu : MonoBehaviour
             SceneManager.LoadScene(4);
         }
     }
+     public void HighscoreListe(){
+		SceneManager.LoadScene(3);
+	}
 
     public void QuitGame(){
         Application.Quit();
@@ -52,4 +55,5 @@ public class MainMenu : MonoBehaviour
         mixer.SetFloat("MasterVolume",Mathf.Log10(sliderValue)*20);
         mastervolume = Mathf.Log10(sliderValue)*20;
     }
+   
 }
