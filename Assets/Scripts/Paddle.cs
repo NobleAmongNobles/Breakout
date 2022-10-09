@@ -17,7 +17,6 @@ public class Paddle : MonoBehaviour
     private float input;
 
     void Awake(){
-      itemSounds = GetComponents<AudioSource>();
       if(gameObject.tag == "Paddle1"){
         player = 1;
         try{

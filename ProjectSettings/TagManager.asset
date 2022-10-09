@@ -24,6 +24,8 @@ TagManager:
   - Ball2
   - Paddle1
   - Paddle2
+  - SoundeffectVolume
+  - MusicVolume
   layers:
   - Default
   - TransparentFX
