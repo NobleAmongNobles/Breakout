@@ -24,21 +24,11 @@ public class Paddle : MonoBehaviour
 
       if(gameObject.tag == "Paddle1"){
         player = 1;
-        try{
-          spriteRenderer.sprite = spriteArray[(int)ChoosePaddle.instance.PaddlePlayer1];
-        }
-        catch{
-          spriteRenderer.sprite = spriteArray[0];
-        }        
+          spriteRenderer.sprite = spriteArray[PlayerPrefs.GetInt("PaddlePlayer1",0)];       
       }
       else{
         player = 2;
-        try{
-          spriteRenderer.sprite = spriteArray[(int)ChoosePaddle.instance.PaddlePlayer2];
-        }
-        catch{
-          spriteRenderer.sprite = spriteArray[0];
-        }
+          spriteRenderer.sprite = spriteArray[PlayerPrefs.GetInt("PaddlePlayer2",0)];
       }
     }
     // Update is called once per frame

@@ -14,16 +14,7 @@ public class Backgrounds : MonoBehaviour
     Color32 color;
     void Awake(){
         instance = this;
-        try{ //Es ist nicht gewiss, ob bereits  die ChooseBackground  instance erstellt wurde
-            if(ChooseBackgrounds.instance.background == null){
-                background = 0;
-            }else{
-                background = (int)ChooseBackgrounds.instance.background;
-            }
-        } //Auffangen, falls die ChooseBackground instance noch nicht initialisiert wurde.
-        catch{
-            background = 0;
-        }
+        background = PlayerPrefs.GetInt("Background",0);
         spriteRenderer.sprite = spriteArray[background];
         
         spriteRenderer.transform.localScale = new Vector3(1.5f,1.5f,1.5f);
