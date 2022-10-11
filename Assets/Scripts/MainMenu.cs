@@ -1,13 +1,14 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 using UnityEngine.SceneManagement;
 using UnityEngine.Audio;
 
 public class MainMenu : MonoBehaviour
 {   public static MainMenu instance;
     public AudioMixer mixer;
-    public float mastervolume;
+    //public float mastervolume;
     public bool singleplayer = true;
     public bool endless = false;
 
@@ -17,7 +18,8 @@ public class MainMenu : MonoBehaviour
 
     void Start()
     {
-        SetVolumeLevel(0.5f);
+       SetMusicVolumeLevel(PlayerPrefs.GetFloat("MusicVolume",0.5f)); 
+       SetSoundeffectVolume(PlayerPrefs.GetFloat("SoundeffectVolume",0.5f));
     }
 
     public void PlayGame(){
@@ -51,9 +53,15 @@ public class MainMenu : MonoBehaviour
         SceneManager.LoadScene(7);
     }
 
-    public void SetVolumeLevel (float sliderValue){
-        mixer.SetFloat("MasterVolume",Mathf.Log10(sliderValue)*20);
-        mastervolume = Mathf.Log10(sliderValue)*20;
+    public void SetMusicVolumeLevel (float sliderValue){
+        mixer.SetFloat("MusicVolume",Mathf.Log10(sliderValue)*20);
+        //mastervolume = Mathf.Log10(sliderValue)*20;
+        PlayerPrefs.SetFloat("MusicVolume", sliderValue);
+    }  
+    public void SetSoundeffectVolume (float sliderValue){
+        mixer.SetFloat("SoundeffectVolume",Mathf.Log10(sliderValue)*20);
+        PlayerPrefs.SetFloat("SoundeffectVolume", sliderValue);
     }
+
    
 }

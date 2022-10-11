@@ -21,6 +21,7 @@ public class Paddle : MonoBehaviour
     void Awake(){
       itemSounds = GetComponents<AudioSource>();
       singleplayer = MainMenu.instance.singleplayer;
+
       if(gameObject.tag == "Paddle1"){
         player = 1;
         try{

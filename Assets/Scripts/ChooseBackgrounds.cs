@@ -9,24 +9,8 @@ public class ChooseBackgrounds : MonoBehaviour
     void Awake(){
         instance = this;
     }
-    public void ChooseBackground0()
+    public void ChooseBackground(int choice)
     {
-        background = 0;
-    }
-    public void ChooseBackground1()
-    {
-        background = 1;
-    }
-    public void ChooseBackground2()
-    {
-        background = 2;
-    }
-    public void ChooseBackground3()
-    {
-        background = 3;
-    }
-    public void ChooseBackground4()
-    {
-        background = 4;
+        background = choice;
     }
 }
