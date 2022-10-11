@@ -2,6 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.SceneManagement;
+using UnityEngine.UI;
 
 public class HelpMenu : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class HelpMenu : MonoBehaviour
     public GameObject PanelSingleplayerControls;
     public GameObject PanelMultiplayerControls;
     public GameObject PanelItems;
+    
 
     // Start is called before the first frame update
     void Start()
@@ -16,6 +18,11 @@ public class HelpMenu : MonoBehaviour
         //PanelSingleplayerControls = GameObject.Find("PanelSingleplayerControls");
         //PanelMultiplayerControls = GameObject.Find("PanelMultiplayerControls");
         //PanelItems = GameObject.Find("PanelItems");
+       
+       
+    }
+    void Awake(){
+        
     }
 
     // Update is called once per frame
@@ -23,7 +30,6 @@ public class HelpMenu : MonoBehaviour
     {
         
     }
-
     public void ButtonSingleplayerControls(){
         PanelItems.SetActive(false);
         PanelMultiplayerControls.SetActive(false);
