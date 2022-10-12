@@ -9,7 +9,14 @@ public class PauseMenu : MonoBehaviour
 
     public GameObject pauseMenuUI;
 
+    AudioSource[] soundEffects;
+
     // Update is called once per frame
+
+    void Awake(){
+        soundEffects = GetComponents<AudioSource>();
+    }
+
     void Update()
     {
         if (Input.GetKeyDown(KeyCode.Escape))
@@ -30,6 +37,7 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(false);
         Time.timeScale = 01f;
         GameIsPaused = false;
+        AudioManager.instance.GetBGM().UnPause();
     }
 
     void Pause()
@@ -37,6 +45,8 @@ public class PauseMenu : MonoBehaviour
         pauseMenuUI.SetActive(true);
         Time.timeScale = 0f;
         GameIsPaused = true;
+        AudioManager.instance.GetBGM().Pause();
+        soundEffects[0].Play(0);
     }
 
     public void LoadMenu()
