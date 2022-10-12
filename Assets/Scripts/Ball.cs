@@ -17,20 +17,10 @@ public class Ball : MonoBehaviour
 
     IEnumerator Spawn(){
         if(gameObject.tag == "Ball1"){
-            try{
-                spriteRenderer.sprite = spriteArray[(int)ChooseBall.instance.ballPlayer1];
-            }
-            catch{
-                spriteRenderer.sprite = spriteArray[0];
-            }           
+                spriteRenderer.sprite = spriteArray[PlayerPrefs.GetInt("BallPlayer1",0)];         
         }
         if(gameObject.tag == "Ball2"){
-           try{
-                spriteRenderer.sprite = spriteArray[(int)ChooseBall.instance.ballPlayer2];
-            }
-            catch{
-                spriteRenderer.sprite = spriteArray[0];
-            } 
+            spriteRenderer.sprite = spriteArray[PlayerPrefs.GetInt("BallPlayer2",0)];
         }
         yield return new WaitForSeconds(3);
         GetComponent<Rigidbody2D>().velocity = Random.insideUnitCircle.normalized * (speed + additionalSpeed);
