@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 public class Deathzone : MonoBehaviour
 {
     public int player = 0;
+    AudioSource[] sounds;
     
+    void Awake(){
+        sounds = GetComponents<AudioSource>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -62,7 +67,14 @@ public class Deathzone : MonoBehaviour
             }
         }
         else{
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+          StartCoroutine(GameOver());
         }
+    }
+
+    IEnumerator GameOver (){
+        AudioManager.instance.GetBGM().Pause();
+        sounds[0].Play(0);
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }
