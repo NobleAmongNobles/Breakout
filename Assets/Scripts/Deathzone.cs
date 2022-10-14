@@ -29,9 +29,11 @@ public class Deathzone : MonoBehaviour
         GameObject collided = other.gameObject;
         if(gameObject.tag == "Deathzone1" && collided.tag == "Ball1"){
             RespawnBall(other.GetComponent<Ball>());
+            sounds[1].Play(0);
         }
         if(gameObject.tag == "Deathzone2" && collided.tag == "Ball2"){
             RespawnBall(other.GetComponent<Ball>());
+            sounds[1].Play(0);
         }
         if(collided.tag != "Ball1" && collided.tag != "Ball2"){
             Destroy(collided);
