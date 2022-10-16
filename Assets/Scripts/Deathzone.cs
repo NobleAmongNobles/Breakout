@@ -7,7 +7,12 @@ using UnityEngine.SceneManagement;
 public class Deathzone : MonoBehaviour
 {
     public int player = 0;
+    AudioSource[] sounds;
     
+    void Awake(){
+        sounds = GetComponents<AudioSource>();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
@@ -24,9 +29,11 @@ public class Deathzone : MonoBehaviour
         GameObject collided = other.gameObject;
         if(gameObject.tag == "Deathzone1" && collided.tag == "Ball1"){
             RespawnBall(other.GetComponent<Ball>());
+            sounds[1].Play(0);
         }
         if(gameObject.tag == "Deathzone2" && collided.tag == "Ball2"){
             RespawnBall(other.GetComponent<Ball>());
+            sounds[1].Play(0);
         }
         if(collided.tag != "Ball1" && collided.tag != "Ball2"){
             Destroy(collided);
@@ -62,7 +69,14 @@ public class Deathzone : MonoBehaviour
             }
         }
         else{
-            SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
+          StartCoroutine(GameOver());
         }
+    }
+
+    IEnumerator GameOver (){
+        AudioManager.instance.GetBGM().Pause();
+        sounds[0].Play(0);
+        yield return new WaitForSeconds(4);
+        SceneManager.LoadScene(SceneManager.GetActiveScene().buildIndex + 1);
     }
 }

@@ -113,11 +113,15 @@ public class Paddle : MonoBehaviour
           StartCoroutine(Speedball());
           break;
       }
-      
-      if (collided.tag != "Ball1" || collided.tag != "Ball2"){
         Destroy(collided);
+    }
+      
+    void OnCollisionEnter2D(Collision2D other){
+      if (other.gameObject.tag == "Ball1"|| other.gameObject.tag == "Ball2"){
+        itemSounds[9].Play(0);
       }
     }
+    
     IEnumerator Speedup (){
         speed *= 2f;
         yield return new WaitForSeconds(10);
