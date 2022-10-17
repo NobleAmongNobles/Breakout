@@ -6,6 +6,7 @@ public class ChooseBackgrounds : MonoBehaviour
 {   
     public static ChooseBackgrounds instance;
     public GameObject[] DefaultBackground;
+
     void Awake(){
         instance = this;
     }
