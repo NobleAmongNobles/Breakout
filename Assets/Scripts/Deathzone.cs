@@ -69,7 +69,8 @@ public class Deathzone : MonoBehaviour
             }
         }
         else{
-          StartCoroutine(GameOver());
+            BallManager.instance.Clear();
+            StartCoroutine(GameOver());
         }
     }
 

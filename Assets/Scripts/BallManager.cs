@@ -70,4 +70,13 @@ public class BallManager : MonoBehaviour
             }
         }
     }
+
+    public void Clear(){
+        foreach(GameObject ball in balls1){
+            Destroy(ball);
+        }
+        foreach(GameObject ball in balls2){
+            Destroy(ball);
+        }
+    }
 }
