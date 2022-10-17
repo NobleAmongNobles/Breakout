@@ -9,6 +9,8 @@ public class ChooseBall : MonoBehaviour
     public Button[] buttonsPlayer2;
     public GameObject[] imagesPlayer1;
     public GameObject[] imagesPlayer2;
+    public GameObject[] disabled1;
+    public GameObject[] disabled2;
 
     // Start is called before the first frame update
     void Awake(){
@@ -24,6 +26,7 @@ public class ChooseBall : MonoBehaviour
         SetBall(choice, 1);
         MarkButton(choice, 1);
         MakeButtonsInteractable(choice, 1);
+        ShowChoiceDisable(choice, 1);
     }
 
     public void ClickPlayer2(int choice){
@@ -31,6 +34,7 @@ public class ChooseBall : MonoBehaviour
         SetBall(choice, 2);
         MarkButton(choice, 2);
         MakeButtonsInteractable(choice, 2);
+        ShowChoiceDisable(choice, 2);
     }
 
     private void SetBall(int choice, int player){
@@ -60,18 +64,18 @@ public class ChooseBall : MonoBehaviour
     private void LockButtonForOtherPlayer(int choice, int player){
         if(player == 1){
             foreach(Button button in buttonsPlayer2){
-                button.gameObject.SetActive(true);
+                button.interactable = true;
             }
             if(choice != 0){
-                buttonsPlayer2[choice].gameObject.SetActive(false);
+                buttonsPlayer2[choice].interactable = false;
             }
         }
         if(player == 2){
             foreach(Button button in buttonsPlayer1){
-                button.gameObject.SetActive(true);
+                button.interactable = true;
             }
             if(choice != 0){
-                buttonsPlayer1[choice].gameObject.SetActive(false);
+                buttonsPlayer1[choice].interactable = false;
             }
         }
     }
@@ -88,6 +92,24 @@ public class ChooseBall : MonoBehaviour
                 button.interactable = true;
             }
             buttonsPlayer2[choice].interactable = false;
+        }
+    }
+    private void ShowChoiceDisable(int choice, int player){
+        if(player == 1){
+            foreach(GameObject Disable in disabled2){
+                Disable.gameObject.SetActive(false);
+            }
+            if(choice != 0){
+                disabled2[choice].gameObject.SetActive(true);
+            }
+        }
+        if(player == 2){
+            foreach(GameObject Disable in disabled1){
+                Disable.gameObject.SetActive(false);
+            }
+            if(choice != 0){
+                disabled1[choice].gameObject.SetActive(true);
+            }
         }
     }
 }
