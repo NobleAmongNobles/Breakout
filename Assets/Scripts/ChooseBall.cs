@@ -22,18 +22,16 @@ public class ChooseBall : MonoBehaviour
     }
 
     public void ClickPlayer1(int choice){
-        LockButtonForOtherPlayer(choice, 1);
         SetBall(choice, 1);
+        LockButtons();
         MarkButton(choice, 1);
-        MakeButtonsInteractable(choice, 1);
         ShowChoiceDisable(choice, 1);
     }
 
     public void ClickPlayer2(int choice){
-        LockButtonForOtherPlayer(choice, 2);
         SetBall(choice, 2);
+        LockButtons();
         MarkButton(choice, 2);
-        MakeButtonsInteractable(choice, 2);
         ShowChoiceDisable(choice, 2);
     }
 
@@ -61,39 +59,24 @@ public class ChooseBall : MonoBehaviour
         }
     }
 
-    private void LockButtonForOtherPlayer(int choice, int player){
-        if(player == 1){
-            foreach(Button button in buttonsPlayer2){
-                button.interactable = true;
-            }
-            if(choice != 0){
-                buttonsPlayer2[choice].interactable = false;
-            }
+    private void LockButtons(){
+        foreach(Button button in buttonsPlayer1){
+            button.interactable = true;
         }
-        if(player == 2){
-            foreach(Button button in buttonsPlayer1){
-                button.interactable = true;
-            }
-            if(choice != 0){
-                buttonsPlayer1[choice].interactable = false;
-            }
+        foreach(Button button in buttonsPlayer2){
+            button.interactable = true;
+        }
+        buttonsPlayer1[PlayerPrefs.GetInt("BallPlayer1",0)].interactable = false;
+        buttonsPlayer2[PlayerPrefs.GetInt("BallPlayer2",0)].interactable = false;
+
+        if(PlayerPrefs.GetInt("BallPlayer2",0) != 0){
+            buttonsPlayer1[PlayerPrefs.GetInt("BallPlayer2",0)].interactable = false;
+        }
+        if(PlayerPrefs.GetInt("BallPlayer1",0) != 0){
+            buttonsPlayer2[PlayerPrefs.GetInt("BallPlayer1",0)].interactable = false;
         }
     }
 
-    private void MakeButtonsInteractable(int choice, int player){
-        if(player == 1){
-            foreach(Button button in buttonsPlayer1){
-                button.interactable = true;
-            }
-            buttonsPlayer1[choice].interactable = false;
-        }
-        if(player == 2){
-            foreach(Button button in buttonsPlayer2){
-                button.interactable = true;
-            }
-            buttonsPlayer2[choice].interactable = false;
-        }
-    }
     private void ShowChoiceDisable(int choice, int player){
         if(player == 1){
             foreach(GameObject Disable in disabled2){
