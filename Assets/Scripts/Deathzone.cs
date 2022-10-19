@@ -70,6 +70,12 @@ public class Deathzone : MonoBehaviour
             BallManager.instance.Clear();
             StartCoroutine(GameOver());
         }
+
+        if(ScoreManager.instance.leben1 == 0 && MainMenu.instance.singleplayer){
+            BallManager.instance.Clear();
+            StartCoroutine(GameOver());
+        }
+        
         Destroy(ball.gameObject);
     }
 
