@@ -52,17 +52,15 @@ public class Deathzone : MonoBehaviour
             }   
         }
 
-        if(ScoreManager.instance.leben1 > 0 && ScoreManager.instance.leben2 > 0){
-            if(ball.gameObject.tag == "Ball1"){
+        if(ScoreManager.instance.leben1 > 0 || ScoreManager.instance.leben2 > 0){
+            if(ball.gameObject.tag == "Ball1" && ScoreManager.instance.leben1 > 0){
                 BallManager.instance.balls1.Remove(ball.gameObject);
-                Destroy(ball.gameObject);
                 if(BallManager.instance.balls1.Count == 0){
                     BallManager.instance.Spawnball("Paddle1");
                 }
             }
-            else{
+            if(ball.gameObject.tag == "Ball2" && ScoreManager.instance.leben2 > 0){
                 BallManager.instance.balls2.Remove(ball.gameObject);
-                Destroy(ball.gameObject);
                 if(BallManager.instance.balls2.Count == 0){
                     BallManager.instance.Spawnball("Paddle2");
                 }
@@ -72,6 +70,7 @@ public class Deathzone : MonoBehaviour
             BallManager.instance.Clear();
             StartCoroutine(GameOver());
         }
+        Destroy(ball.gameObject);
     }
 
     IEnumerator GameOver (){
